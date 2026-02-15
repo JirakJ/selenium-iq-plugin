@@ -5,103 +5,36 @@
     <vendor email="support@seleniumiq.com" url="https://seleniumiq.com">Jakub Jirak</vendor>
 
     <description><![CDATA[
-        <h1>SeleniumIQ - Revolutionary AI-Powered Selenium Testing for IntelliJ</h1>
-        
-        <p>Stop wasting 50-60% of your time maintaining brittle Selenium tests. SeleniumIQ uses AI to eliminate test flakiness, self-heal broken locators, and dramatically reduce maintenance burden.</p>
-        
-        <h2>✨ Core Features</h2>
-        
-        <h3>🤖 AI-Powered Locator Generation</h3>
-        <ul>
-            <li>Intelligent multi-attribute analysis for stable locators</li>
-            <li>Automatic stability scoring and fallback strategies</li>
-            <li>Eliminates hours spent crafting "perfect" locators</li>
-        </ul>
-        
-        <h3>🔧 Self-Healing Locators</h3>
-        <ul>
-            <li>Automatically detects and fixes broken locators after UI changes</li>
-            <li>One-click updates across entire test suite</li>
-            <li>Reduces maintenance time by 60-80%</li>
-        </ul>
-        
-        <h3>🌐 Cross-Browser Testing</h3>
-        <ul>
-            <li>Chrome, Firefox, Safari, Edge support</li>
-            <li>Browser-specific optimization</li>
-            <li>No expensive cloud platform required</li>
-        </ul>
-        
-        <h3>⚡ Intelligent Wait Strategies</h3>
-        <ul>
-            <li>Analyzes loading patterns and suggests explicit waits</li>
-            <li>Automatically replaces Thread.sleep() with smart waits</li>
-            <li>Detects AJAX/SPA patterns (React, Angular, Vue)</li>
-        </ul>
-        
-        <h3>📊 Flakiness Prediction & Analytics</h3>
-        <ul>
-            <li>Real-time flakiness scoring based on 25+ metrics</li>
-            <li>Warning indicators for high-risk patterns</li>
-            <li>86% prediction accuracy</li>
-            <li>Team-wide analytics dashboard</li>
-        </ul>
-        
-        <h3>🐛 Advanced Debugging</h3>
-        <ul>
-            <li>Time-travel debugging with DOM snapshots</li>
-            <li>Visual DOM diff showing changes</li>
-            <li>Step backward through execution</li>
-        </ul>
-        
-        <h3>🏗️ Page Object Generation</h3>
-        <ul>
-            <li>Auto-generate Page Object Model classes</li>
-            <li>Intelligent naming from page structure</li>
-            <li>Built-in explicit waits and PageFactory</li>
-        </ul>
-        
-        <h3>⚙️ CI/CD Integration</h3>
-        <ul>
-            <li>One-click pipeline configuration generator</li>
-            <li>GitHub Actions, GitLab CI, Jenkins, CircleCI</li>
-            <li>Azure DevOps and Travis CI support</li>
-        </ul>
-        
-        <h3>☁️ Cloud Platform Integration</h3>
-        <ul>
-            <li>BrowserStack, Sauce Labs, LambdaTest</li>
-            <li>One-click remote execution setup</li>
-            <li>Parallel test execution configuration</li>
-        </ul>
-        
-        <h3>📸 Visual Regression Testing</h3>
-        <ul>
-            <li>Pixel-perfect screenshot comparison</li>
-            <li>Percy & Applitools integration</li>
-            <li>Visual diff highlighting</li>
-        </ul>
-        
-        <h3>🎲 Test Data Management</h3>
-        <ul>
-            <li>Realistic fake data generation</li>
-            <li>Environment-specific data sets</li>
-            <li>15+ data types (email, name, phone, etc.)</li>
-        </ul>
-        
-        
-        <h2>🚀 Quick Start</h2>
-        <ol>
-            <li>Install the plugin</li>
-            <li>Open your Selenium project</li>
-            <li>Right-click in test code → SeleniumIQ → Generate Locator</li>
-            <li>Watch AI create stable, maintainable locators</li>
-        </ol>
-        
-        <p><strong>Save 10-15 hours per month on test maintenance. Start free today!</strong></p>
-        
-        <p>Visit <a href="https://seleniumiq.com">seleniumiq.com</a> for full documentation.</p>
-    ]]></description>
+<h2>SeleniumIQ — AI-Powered Test Automation</h2>
+<p>
+  Selenium tests that fix themselves. SeleniumIQ brings artificial intelligence to Selenium WebDriver —
+  generating stable locators, self-healing broken selectors, predicting flaky tests before they fail,
+  and providing time-travel debugging with full DOM snapshots.
+</p>
+
+<h2>Key Features</h2>
+<ul>
+  <li><b>AI Locator Generation</b> — Smart locators with stability scores for maximum resilience</li>
+  <li><b>Self-Healing Locators</b> — Automatically repairs broken selectors when the DOM changes</li>
+  <li><b>Flakiness Prediction</b> — 86% accuracy across 25+ test health metrics</li>
+  <li><b>Cross-Browser Testing</b> — Chrome, Firefox, Safari, and Edge support</li>
+  <li><b>Time-Travel Debugging</b> — Replay test executions with DOM snapshots at each step</li>
+  <li><b>Page Object Generation</b> — Auto-generate page object classes from web pages</li>
+  <li><b>Multi-Language</b> — Java, Python, and JavaScript bindings</li>
+</ul>
+
+<h2>Why SeleniumIQ?</h2>
+<p>
+  Test maintenance consumes 60–80% of automation effort. SeleniumIQ's AI reduces maintenance by
+  auto-healing broken locators and predicting which tests will become flaky — before they disrupt your pipeline.
+</p>
+
+<h2>Free vs Pro</h2>
+<ul>
+  <li><b>Free:</b> AI locator generation, basic self-healing, cross-browser testing, intelligent waits</li>
+  <li><b>Pro:</b> Visual regression testing (Percy/Applitools), performance analyzer, cloud platform integration (BrowserStack, Sauce Labs), test management integration (Jira/TestRail), compliance reporting, and data-driven testing</li>
+</ul>
+]]></description>
 
     <change-notes><![CDATA[
         <h2>Version 1.1.4</h2>
