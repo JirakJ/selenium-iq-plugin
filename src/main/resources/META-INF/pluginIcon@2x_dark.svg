@@ -1,0 +1,43 @@
+<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="bgGradientDark2x" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#388E3C;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#1B5E20;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="seleniumGradientDark2x" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#A5D6A7;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#81C784;stop-opacity:1" />
+        </linearGradient>
+        <filter id="shadowDark">
+            <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.5"/>
+        </filter>
+    </defs>
+    
+    <!-- Background with rounded corners -->
+    <rect width="80" height="80" rx="16" fill="url(#bgGradientDark2x)"/>
+    
+    <!-- Selenium-inspired browser window -->
+    <rect x="12" y="14" width="56" height="32" rx="4" fill="#0D3818" opacity="0.5" filter="url(#shadowDark)"/>
+    <rect x="12" y="14" width="56" height="6" rx="4" fill="url(#seleniumGradientDark2x)"/>
+    
+    <!-- Browser dots -->
+    <circle cx="18" cy="17" r="1.6" fill="#E0E0E0" opacity="0.9"/>
+    <circle cx="24" cy="17" r="1.6" fill="#E0E0E0" opacity="0.9"/>
+    <circle cx="30" cy="17" r="1.6" fill="#E0E0E0" opacity="0.9"/>
+    
+    <!-- Content lines in browser -->
+    <rect x="18" y="26" width="44" height="2" rx="1" fill="#A5D6A7" opacity="0.6"/>
+    <rect x="18" y="32" width="36" height="2" rx="1" fill="#A5D6A7" opacity="0.5"/>
+    <rect x="18" y="38" width="40" height="2" rx="1" fill="#A5D6A7" opacity="0.4"/>
+    
+    <!-- AI/IQ branding - larger and more prominent -->
+    <text x="40" y="66" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="bold" fill="#E8F5E9" text-anchor="middle" letter-spacing="2">IQ</text>
+    
+    <!-- Smart indicator (lightning bolt for AI) -->
+    <path d="M 42 26 L 36 36 L 40 36 L 38 44 L 46 34 L 42 34 Z" fill="#FFEB3B" opacity="0.95" filter="url(#shadowDark)"/>
+    
+    <!-- Decorative elements - small circles representing test nodes -->
+    <circle cx="22" cy="28" r="1.5" fill="#66BB6A" opacity="0.8"/>
+    <circle cx="28" cy="35" r="1.5" fill="#81C784" opacity="0.8"/>
+    <circle cx="54" cy="30" r="1.5" fill="#A5D6A7" opacity="0.8"/>
+</svg>
