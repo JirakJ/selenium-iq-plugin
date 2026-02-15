@@ -1,5 +1,5 @@
 <idea-plugin>
-    <id>com.jakubjirak.seleniumiq</id>
+    <id>com.jakubjirak.selenium-iq</id>
     <name>SeleniumIQ - AI-Powered Test Automation</name>
     <vendor email="support@seleniumiq.com" url="https://seleniumiq.com">Jakub Jirak</vendor>
 
