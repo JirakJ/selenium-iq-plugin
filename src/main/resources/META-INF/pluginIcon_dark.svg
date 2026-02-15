@@ -1,0 +1,30 @@
+<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="bgGradientDark" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#388E3C;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#1B5E20;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="seleniumGradientDark" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#A5D6A7;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#81C784;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+    
+    <!-- Background with rounded corners -->
+    <rect width="40" height="40" rx="8" fill="url(#bgGradientDark)"/>
+    
+    <!-- Selenium-inspired browser window -->
+    <rect x="6" y="7" width="28" height="16" rx="2" fill="#0D3818" opacity="0.5"/>
+    <rect x="6" y="7" width="28" height="3" rx="2" fill="url(#seleniumGradientDark)"/>
+    
+    <!-- Browser dots -->
+    <circle cx="9" cy="8.5" r="0.8" fill="#E0E0E0" opacity="0.9"/>
+    <circle cx="12" cy="8.5" r="0.8" fill="#E0E0E0" opacity="0.9"/>
+    <circle cx="15" cy="8.5" r="0.8" fill="#E0E0E0" opacity="0.9"/>
+    
+    <!-- AI/IQ branding -->
+    <text x="20" y="33" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold" fill="#E8F5E9" text-anchor="middle" letter-spacing="1">IQ</text>
+    
+    <!-- Smart indicator (lightning bolt for AI) -->
+    <path d="M 21 13 L 18 18 L 20 18 L 19 22 L 23 17 L 21 17 Z" fill="#FFEB3B" opacity="0.95"/>
+</svg>
