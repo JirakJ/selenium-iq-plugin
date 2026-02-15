@@ -1,6 +1,6 @@
 <idea-plugin>
     <id>com.jakubjirak.selenium-iq</id>
-    <product-descriptor code="PSELENIUMIQ" release-date="20260215" release-version="20262" optional="true"/>
+    <product-descriptor code="PSELENIUMIQAIPO" release-date="20260215" release-version="20262" optional="true"/>
     <name>SeleniumIQ - AI-Powered Test Automation</name>
     <vendor email="support@seleniumiq.com" url="https://seleniumiq.com">Jakub Jirak</vendor>
 
