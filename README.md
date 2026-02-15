@@ -1,55 +1,64 @@
-# SeleniumIQ - AI-Powered Selenium Testing for IntelliJ
+# SeleniumIQ
 
-[![JetBrains Plugin](https://img.shields.io/badge/JetBrains-Plugin-green.svg)](https://plugins.jetbrains.com/plugin/PSELENIUMIQAIPO)
-[![Version](https://img.shields.io/badge/version-1.1.4-blue.svg)](https://github.com/jakubjirak/selenium-iq-plugin)
-[![License](https://img.shields.io/badge/license-MIT-orange.svg)](LICENSE)
+AI-powered Selenium test automation plugin for JetBrains IDEs that eliminates test flakiness with intelligent locator generation, self-healing capabilities, and comprehensive test maintenance tools.
 
-**Stop wasting 50-60% of your time maintaining brittle Selenium tests.** SeleniumIQ uses AI to eliminate test flakiness, self-heal broken locators, and dramatically reduce maintenance burden.
+## Features
 
-## 🚀 Quick Start
+- **AI-powered locator generation** — intelligent multi-attribute analysis generating stable locators (ID, CSS, XPath, data-testid) with stability scoring and dynamic ID filtering (Ctrl+Alt+L)
+- **Self-healing locators** — auto-detects broken locators after UI changes, finds similar elements, and offers one-click replacement across the test suite
+- **Flakiness prediction** — real-time scoring (0–100) across 25+ metrics with 86% prediction accuracy, detecting anti-patterns like `Thread.sleep()`, absolute XPath, and poor wait strategies
+- **Intelligent wait strategies** — analyzes loading patterns and suggests explicit waits, auto-replaces `Thread.sleep()` with `WebDriverWait`, detects AJAX/SPA patterns (React, Angular, Vue)
+- **Page Object generation** — auto-generates Page Object Model classes with type-specific methods, built-in explicit waits, and PageFactory integration
+- **Code inspections** — real-time warnings for flaky test patterns, brittle locators, and poor wait strategies
+- **Locator stability annotations** — inline code annotations showing locator reliability scores
+- **Selenium code completion** — intelligent suggestions for Selenium API calls
+- **Cross-browser testing** — support for Chrome, Firefox, Safari, and Edge with browser-specific optimization
+- **Visual regression testing** — pixel-perfect screenshot comparison with baseline management and configurable thresholds (Premium)
+- **Performance analysis** — real-time execution time tracking, slow locator detection, and optimization tips (Premium)
+- **Data-driven testing** — load test data from CSV/JSON, auto-generate parameterized tests with type inference for 15+ data types (Premium)
+- **CI/CD integration** — one-click pipeline generation for GitHub Actions, GitLab CI, Jenkins, CircleCI, Azure DevOps, and Travis CI (Premium)
+- **Cloud platform integration** — BrowserStack, Sauce Labs, LambdaTest, Perfecto with automated RemoteWebDriver configuration (Premium)
+- **Test management integration** — Jira/Zephyr, TestRail, qTest with automatic result updates and screenshot attachments (Premium)
+- **Team analytics dashboard** — collaboration dashboard with shared metrics and insights
+- **Time-travel debugging** — DOM snapshots with visual diff and step-backward execution (Premium)
 
-1. **Install**: Search "SeleniumIQ" in JetBrains Marketplace
-2. **Open** your Selenium project in IntelliJ IDEA
-3. **Right-click** in test code → SeleniumIQ → Generate AI Locator
-4. **Watch** AI create stable, maintainable locators instantly
+## Installation
 
-## ✨ Latest Release (v1.1.4)
+1. **JetBrains Marketplace**: Settings → Plugins → Marketplace → Search "SeleniumIQ"
+2. **Manual**: Download from [Releases](https://github.com/JirakJ/selenium-iq-plugin/releases) → Settings → Plugins → ⚙️ → Install from disk
 
-### 🔧 Improvements
-- Fixed deprecated API usage in CSV parsing (v1.1.4)
-- Completely disabled welcome dialog to prevent IDE test timeouts (v1.1.3)
-- Removed version upper limit for broader IDE compatibility (v1.1.2)
-- Cleaned up pricing information (v1.1.2)
+## Requirements
 
-### 🐛 Bug Fixes (v1.1.1)
-- Fixed: Skip welcome dialog in headless mode
+- IntelliJ IDEA 2023.2+ (build 232+)
+- Any JetBrains IDE with Java support (IntelliJ IDEA, etc.)
+- Selenium WebDriver in your project dependencies
 
-### 🆕 Features
-- AI-powered locator generation with intelligent suggestions
-- Self-healing test capabilities
-- Flakiness prediction and analysis
-- Cross-browser testing support
-- Page Object Generator
-- Team Analytics Dashboard
-- CI/CD Integration Templates
-- Compliance Reporting
+## Configuration
 
-## 📦 Installation
+Settings → Tools → SeleniumIQ
 
-Install directly from JetBrains Marketplace:
-`Settings` → `Plugins` → Search "SeleniumIQ" → `Install`
+Configure AI locator preferences, inspection severity levels, and cloud platform credentials.
 
-## 🎯 Key Features
+## Usage
 
-✅ AI-Powered Locator Generation  
-✅ Self-Healing Locators  
-✅ Flakiness Prediction  
-✅ Cross-Browser Testing  
-✅ Page Object Generator  
-✅ Team Analytics Dashboard  
-✅ CI/CD Integration Templates  
-✅ Compliance Reporting
+### Generate AI Locators
+Right-click in your test code → SeleniumIQ → **Generate AI Locator** (Ctrl+Alt+L). The AI analyzes the target element and generates multiple locator strategies ranked by stability score.
 
----
+### Heal Broken Locators
+When locators break after UI changes, right-click → SeleniumIQ → **Heal Broken Locators** to auto-detect and fix broken selectors across your test suite.
 
-**Made with ❤️ for the Selenium community**
+### Analyze Test Flakiness
+Right-click → SeleniumIQ → **Analyze Test Flakiness** to get a reliability score with actionable recommendations for reducing test flakiness.
+
+### Generate Page Objects
+Menu → SeleniumIQ → **Generate Page Object** to auto-create a Page Object Model class from the current page structure.
+
+## Building from Source
+
+```bash
+./gradlew buildPlugin
+```
+
+## License
+
+Copyright © 2026 Jakub Jirák. All rights reserved.
