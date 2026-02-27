@@ -1,0 +1,12 @@
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <!-- Crosshair / target locator -->
+    <circle cx="8" cy="8" r="5.5" fill="none" stroke="#43A047" stroke-width="1.5"/>
+    <circle cx="8" cy="8" r="2" fill="#43A047"/>
+    <!-- Crosshair lines -->
+    <line x1="8" y1="1" x2="8" y2="4" stroke="#43A047" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="8" y1="12" x2="8" y2="15" stroke="#43A047" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="1" y1="8" x2="4" y2="8" stroke="#43A047" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="12" y1="8" x2="15" y2="8" stroke="#43A047" stroke-width="1.5" stroke-linecap="round"/>
+    <!-- AI sparkle -->
+    <circle cx="13" cy="3" r="1.5" fill="#FDD835"/>
+</svg>

@@ -1,0 +1,7 @@
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <!-- Magnifying glass -->
+    <circle cx="7" cy="7" r="4.5" fill="none" stroke="#43A047" stroke-width="1.5"/>
+    <line x1="10.5" y1="10.5" x2="14" y2="14" stroke="#43A047" stroke-width="2" stroke-linecap="round"/>
+    <!-- Bug / flaky indicator inside -->
+    <path d="M5.5 6 L7 8 L8.5 5" fill="none" stroke="#FF9800" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

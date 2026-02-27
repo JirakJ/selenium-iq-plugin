@@ -1,0 +1,7 @@
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <!-- Wrench / heal icon -->
+    <path d="M3 11 L7 7 L9 9 L5 13 Z" fill="#43A047"/>
+    <path d="M9 3 C10 2 12 2 13 3 C14 4 14 6 13 7 L9 3 Z" fill="#66BB6A"/>
+    <!-- Heart / healing -->
+    <path d="M10.5 10 C10.5 9 11.5 8.5 12 9 C12.5 8.5 13.5 9 13.5 10 C13.5 11.5 12 13 12 13 C12 13 10.5 11.5 10.5 10 Z" fill="#E53935"/>
+</svg>
