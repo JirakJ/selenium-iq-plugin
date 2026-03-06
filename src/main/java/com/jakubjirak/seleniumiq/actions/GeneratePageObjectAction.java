@@ -5,8 +5,6 @@ import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.Messages;
-import com.jakubjirak.seleniumiq.services.LicenseService;
-import com.jakubjirak.seleniumiq.services.UsageTrackingService;
 import org.jetbrains.annotations.NotNull;
 
 public class GeneratePageObjectAction extends AnAction {
@@ -20,19 +18,6 @@ public class GeneratePageObjectAction extends AnAction {
     public void actionPerformed(@NotNull AnActionEvent e) {
         Project project = e.getProject();
         if (project == null) {
-            return;
-        }
-
-        UsageTrackingService usageService = UsageTrackingService.getInstance(project);
-        LicenseService licenseService = LicenseService.getInstance(project);
-
-        if (!usageService.canUseAILocator()) {
-            Messages.showWarningDialog(
-                project,
-                "Page Object generation uses your AI locator quota.\n\n" +
-                "You've reached your monthly limit. Upgrade to Individual Professional for unlimited usage!",
-                "Monthly Limit Reached"
-            );
             return;
         }
 
@@ -66,8 +51,6 @@ public class GeneratePageObjectAction extends AnAction {
             "The plugin will analyze the page and generate a complete Page Object Model class with stable locators.",
             "Generating Page Object"
         );
-        
-        usageService.recordAILocatorUsage();
     }
 
     @Override

@@ -25,7 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Real-time code inspections for flaky patterns
 - Locator stability annotations
 - Tool window dashboard
-- Settings panel with license management
+- Settings panel
 
 **Actions**
 - Generate AI Locator (Ctrl+Alt+L)
@@ -33,7 +33,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Analyze Test Flakiness
 - Generate Page Object
 - Generate Test Template
-- Upgrade License
 
 **Inspections**
 - Flaky test pattern detection
@@ -41,19 +40,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Poor wait strategy detection (Thread.sleep)
 - Locator stability warnings
 
-**Licensing**
-- Free tier: 100 AI locators/month
-- Individual Professional: $19/month (unlimited)
-- Team: $99/month for 5-10 users
-- Enterprise: Custom pricing
-- Usage tracking and quota management
-
 **Services**
 - AI Locator Service with heuristic-based generation
 - Self-Healing Service with similarity matching
 - Flakiness Analyzer with pattern detection
-- License validation and management
-- Usage tracking with monthly reset
 
 **User Experience**
 - Welcome screen for first-time users
@@ -127,28 +117,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## Migration Guides
-
-### From Free to Individual Professional
-
-No migration needed - all features activate immediately upon license activation.
-
-### From Individual to Team
-
-1. Contact sales for team license
-2. Set up shared repository (optional)
-3. Configure team settings
-4. Invite team members
-
-### From Team to Enterprise
-
-1. Schedule onboarding call
-2. SSO integration setup
-3. Compliance configuration
-4. Custom training session
-
----
-
 ## Breaking Changes
 
 ### v1.0.0
@@ -167,10 +135,7 @@ None yet.
 
 ### v1.0.0
 
-- Secure license key validation
-- Encrypted usage data transmission
 - No sensitive data storage in IDE
-- GDPR-compliant telemetry
 
 ---
 

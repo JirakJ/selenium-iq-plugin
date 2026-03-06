@@ -1,6 +1,5 @@
 <idea-plugin>
     <id>com.jakubjirak.selenium-iq</id>
-    <product-descriptor code="PSELENIUMIQAIPO" release-date="20260215" release-version="20262" optional="true"/>
     <name>SeleniumIQ - AI-Powered Test Automation</name>
     <vendor email="support@jakubjirak.com" url="https://github.com/JirakJ/selenium-iq-plugin">Jakub Jirak</vendor>
 
@@ -85,13 +84,11 @@
     <extensions defaultExtensionNs="com.intellij">
         <!-- Project Service -->
         <projectService serviceImplementation="com.jakubjirak.seleniumiq.services.SeleniumIQProjectService"/>
-        <projectService serviceImplementation="com.jakubjirak.seleniumiq.services.LicenseService"/>
-        <projectService serviceImplementation="com.jakubjirak.seleniumiq.services.UsageTrackingService"/>
-        <projectService serviceImplementation="com.jakubjirak.seleniumiq.premium.CloudPlatformService"/>
-        <projectService serviceImplementation="com.jakubjirak.seleniumiq.premium.TestManagementService"/>
-        <projectService serviceImplementation="com.jakubjirak.seleniumiq.premium.VisualTestingService"/>
-        <projectService serviceImplementation="com.jakubjirak.seleniumiq.premium.PerformanceAnalyzerService"/>
-        <projectService serviceImplementation="com.jakubjirak.seleniumiq.premium.DataDrivenTestingService"/>
+        <projectService serviceImplementation="com.jakubjirak.seleniumiq.features.CloudPlatformService"/>
+        <projectService serviceImplementation="com.jakubjirak.seleniumiq.features.TestManagementService"/>
+        <projectService serviceImplementation="com.jakubjirak.seleniumiq.features.VisualTestingService"/>
+        <projectService serviceImplementation="com.jakubjirak.seleniumiq.features.PerformanceAnalyzerService"/>
+        <projectService serviceImplementation="com.jakubjirak.seleniumiq.features.DataDrivenTestingService"/>
         
         <!-- Application Services -->
         <applicationService serviceImplementation="com.jakubjirak.seleniumiq.services.AILocatorService"/>
@@ -109,7 +106,7 @@
                     secondary="true"
                     icon="/icons/analytics.svg"
                     anchor="bottom"
-                    factoryClass="com.jakubjirak.seleniumiq.premium.TeamAnalyticsDashboard"/>
+                    factoryClass="com.jakubjirak.seleniumiq.features.TeamAnalyticsDashboard"/>
         
         <!-- Actions -->
         <action id="SeleniumIQ.GenerateLocator" 
@@ -204,26 +201,21 @@
                     text="Generate Test Template"
                     description="Generate Selenium test template"/>
             <separator/>
-            <action id="SeleniumIQ.UpgradeLicense"
-                    class="com.jakubjirak.seleniumiq.actions.UpgradeLicenseAction"
-                    text="Upgrade License"
-                    description="Upgrade to Professional, Team, or Enterprise"/>
-            <separator/>
             <action id="SeleniumIQ.VisualRegression"
-                    class="com.jakubjirak.seleniumiq.premium.VisualRegressionAction"
+                    class="com.jakubjirak.seleniumiq.features.VisualRegressionAction"
                     text="Visual Regression Test"
                     description="Compare screenshots for visual regressions"/>
             <separator/>
             <action id="SeleniumIQ.CloudPlatform"
-                    class="com.jakubjirak.seleniumiq.premium.GenerateCloudConfigAction"
+                    class="com.jakubjirak.seleniumiq.features.GenerateCloudConfigAction"
                     text="Cloud Platform Setup"
                     description="Generate cloud platform configuration"/>
             <action id="SeleniumIQ.TestManagement"
-                    class="com.jakubjirak.seleniumiq.premium.GenerateTestManagementAction"
+                    class="com.jakubjirak.seleniumiq.features.GenerateTestManagementAction"
                     text="Test Management Integration"
                     description="Integrate with test management systems"/>
             <action id="SeleniumIQ.Traceability"
-                    class="com.jakubjirak.seleniumiq.premium.RequirementsTraceabilityAction"
+                    class="com.jakubjirak.seleniumiq.features.RequirementsTraceabilityAction"
                     text="Requirements Traceability"
                     description="Generate traceability matrix"/>
         </group>

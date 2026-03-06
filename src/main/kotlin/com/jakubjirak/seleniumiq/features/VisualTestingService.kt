@@ -1,9 +1,7 @@
-package com.jakubjirak.seleniumiq.premium
+package com.jakubjirak.seleniumiq.features
 
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.project.Project
-import com.jakubjirak.seleniumiq.licensing.LicenseManager
-import com.jakubjirak.seleniumiq.licensing.LicenseTier
 import java.awt.image.BufferedImage
 import java.io.File
 import javax.imageio.ImageIO
@@ -40,12 +38,6 @@ class VisualTestingService(private val project: Project) {
         currentPath: String,
         config: VisualTestConfig = VisualTestConfig()
     ): VisualDiff {
-        val licenseManager = LicenseManager.getInstance(project)
-        
-        if (licenseManager.getCurrentTier() == LicenseTier.FREE) {
-            throw IllegalStateException("Visual testing requires Individual tier or higher")
-        }
-        
         val baselineFile = File(baselinePath)
         val currentFile = File(currentPath)
         
@@ -156,12 +148,6 @@ class VisualTestingService(private val project: Project) {
     }
     
     fun createBaseline(screenshotPath: String, baselinePath: String) {
-        val licenseManager = LicenseManager.getInstance(project)
-        
-        if (licenseManager.getCurrentTier() == LicenseTier.FREE) {
-            throw IllegalStateException("Visual testing requires Individual tier or higher")
-        }
-        
         val source = File(screenshotPath)
         val target = File(baselinePath)
         
@@ -169,12 +155,6 @@ class VisualTestingService(private val project: Project) {
     }
     
     fun generateVisualTestReport(results: List<VisualDiff>): String {
-        val licenseManager = LicenseManager.getInstance(project)
-        
-        if (licenseManager.getCurrentTier() != LicenseTier.ENTERPRISE) {
-            throw IllegalStateException("Visual test reporting requires Enterprise tier")
-        }
-        
         val passed = results.count { it.passed }
         val failed = results.count { !it.passed }
         
