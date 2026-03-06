@@ -1,9 +1,7 @@
-package com.jakubjirak.seleniumiq.premium
+package com.jakubjirak.seleniumiq.features
 
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.project.Project
-import com.jakubjirak.seleniumiq.licensing.LicenseManager
-import com.jakubjirak.seleniumiq.licensing.LicenseTier
 import java.time.Duration
 import java.time.Instant
 
@@ -39,12 +37,6 @@ class PerformanceAnalyzerService(private val project: Project) {
         testName: String,
         executionTrace: List<ExecutionStep>
     ): PerformanceMetrics {
-        val licenseManager = LicenseManager.getInstance(project)
-        
-        if (licenseManager.getCurrentTier() == LicenseTier.FREE) {
-            throw IllegalStateException("Performance analysis requires Individual tier or higher")
-        }
-        
         val totalTime = executionTrace.lastOrNull()?.timestamp?.let { end ->
             executionTrace.firstOrNull()?.timestamp?.let { start ->
                 Duration.between(start, end)
@@ -155,23 +147,10 @@ class PerformanceAnalyzerService(private val project: Project) {
     }
     
     fun getPerformanceTrends(testName: String, limit: Int = 10): List<PerformanceMetrics> {
-        val licenseManager = LicenseManager.getInstance(project)
-        
-        if (licenseManager.getCurrentTier() == LicenseTier.FREE) {
-            throw IllegalStateException("Performance trends require Individual tier or higher")
-        }
-        
         return performanceData[testName]?.takeLast(limit) ?: emptyList()
     }
     
     fun generatePerformanceReport(): String {
-        val licenseManager = LicenseManager.getInstance(project)
-        
-        if (licenseManager.getCurrentTier() != LicenseTier.TEAM && 
-            licenseManager.getCurrentTier() != LicenseTier.ENTERPRISE) {
-            throw IllegalStateException("Performance reports require Team tier or higher")
-        }
-        
         return buildString {
             appendLine("# Performance Analysis Report")
             appendLine()

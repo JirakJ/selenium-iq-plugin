@@ -1,7 +1,6 @@
-package com.jakubjirak.seleniumiq.premium
+package com.jakubjirak.seleniumiq.features
 
 import com.intellij.openapi.project.Project
-import com.jakubjirak.seleniumiq.licensing.LicenseManager
 
 data class APIEndpoint(
     val method: String,
@@ -12,13 +11,8 @@ data class APIEndpoint(
 )
 
 class APITestGenerator(private val project: Project) {
-    private val licenseManager = LicenseManager.getInstance()
     
     fun generateAPITest(endpoint: APIEndpoint, testName: String, framework: String = "RestAssured"): String? {
-        if (!licenseManager.hasFeature("api_test_generation")) {
-            return null
-        }
-        
         return when (framework) {
             "RestAssured" -> generateRestAssuredTest(endpoint, testName)
             "OkHttp" -> generateOkHttpTest(endpoint, testName)
@@ -131,10 +125,6 @@ class APITestGenerator(private val project: Project) {
     }
     
     fun interceptNetworkCalls(): List<APIEndpoint> {
-        if (!licenseManager.hasFeature("api_test_generation")) {
-            return emptyList()
-        }
-        
         // This would integrate with browser DevTools protocol to capture network traffic
         // For now, return empty list as placeholder
         return emptyList()

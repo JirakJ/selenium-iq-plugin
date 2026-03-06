@@ -1,9 +1,6 @@
 package com.jakubjirak.seleniumiq.enterprise;
 
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.ui.Messages;
-import com.jakubjirak.seleniumiq.licensing.LicenseManager;
-import com.jakubjirak.seleniumiq.licensing.LicenseTier;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalDateTime;
@@ -12,7 +9,6 @@ import java.util.*;
 
 public class AuditService {
     private final Project project;
-    private final LicenseManager licenseManager;
     private final List<AuditEntry> auditLog = new ArrayList<>();
 
     public enum EventType {
@@ -73,7 +69,6 @@ public class AuditService {
 
     public AuditService(@NotNull Project project) {
         this.project = project;
-        this.licenseManager = LicenseManager.getInstance(project);
     }
 
     public void logEvent(EventType eventType, String userId, String userName, String action) {
@@ -82,20 +77,12 @@ public class AuditService {
 
     public void logEvent(EventType eventType, String userId, String userName, String action, 
                         Map<String, String> metadata) {
-        if (!isEnterpriseFeature()) {
-            return;
-        }
-
         String ipAddress = "127.0.0.1";
         AuditEntry entry = new AuditEntry(eventType, userId, userName, action, metadata, ipAddress);
         auditLog.add(entry);
     }
 
     public List<AuditEntry> getAuditLog(LocalDateTime from, LocalDateTime to) {
-        if (!isEnterpriseFeature()) {
-            return Collections.emptyList();
-        }
-
         return auditLog.stream()
             .filter(entry -> !entry.getTimestamp().isBefore(from) && !entry.getTimestamp().isAfter(to))
             .sorted(Comparator.comparing(AuditEntry::getTimestamp).reversed())
@@ -103,11 +90,6 @@ public class AuditService {
     }
 
     public String generateComplianceReport(LocalDateTime from, LocalDateTime to) {
-        if (!isEnterpriseFeature()) {
-            showEnterpriseRequired();
-            return "";
-        }
-
         StringBuilder report = new StringBuilder();
         report.append("COMPLIANCE AUDIT REPORT\n");
         report.append("=======================\n\n");
@@ -127,22 +109,5 @@ public class AuditService {
         report.append("This report satisfies audit requirements for SOC2, ISO 27001, and GDPR.\n");
         
         return report.toString();
-    }
-
-    private boolean isEnterpriseFeature() {
-        LicenseTier tier = licenseManager.getCurrentTier();
-        return tier == LicenseTier.ENTERPRISE;
-    }
-
-    private void showEnterpriseRequired() {
-        Messages.showInfoMessage(
-            project,
-            "Audit and Compliance features are available in Enterprise plan only.\n\n" +
-            "Upgrade to unlock:\n" +
-            "• Complete audit trails for all activities\n" +
-            "• SOC2, ISO 27001, GDPR compliance reports\n\n" +
-            "Enterprise plan: Starting at $499/month",
-            "Enterprise Feature Required"
-        );
     }
 }

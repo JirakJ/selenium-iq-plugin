@@ -13,8 +13,6 @@ import com.intellij.openapi.ui.popup.util.BaseListPopupStep;
 import com.intellij.ui.awt.RelativePoint;
 import com.jakubjirak.seleniumiq.models.LocatorSuggestion;
 import com.jakubjirak.seleniumiq.services.AILocatorService;
-import com.jakubjirak.seleniumiq.services.LicenseService;
-import com.jakubjirak.seleniumiq.services.UsageTrackingService;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -37,38 +35,6 @@ public class GenerateLocatorAction extends AnAction {
 
         Editor editor = e.getData(CommonDataKeys.EDITOR);
         if (editor == null) {
-            return;
-        }
-
-        UsageTrackingService usageService = UsageTrackingService.getInstance(project);
-        LicenseService licenseService = LicenseService.getInstance(project);
-
-        // Check usage limits
-        if (!usageService.canUseAILocator()) {
-            int remaining = usageService.getRemainingAILocators();
-            Messages.showWarningDialog(
-                project,
-                "You've reached your monthly limit of AI locators (" + 
-                licenseService.getCurrentTier().getMonthlyAILocatorLimit() + ").\n\n" +
-                "Upgrade to Individual Professional for unlimited AI locators!\n" +
-                "Only $19/month - saves 10-15 hours of work monthly.",
-                "AI Locator Limit Reached"
-            );
-            
-            // Show upgrade option
-            int result = Messages.showYesNoDialog(
-                project,
-                "Would you like to upgrade to Individual Professional tier?",
-                "Upgrade to Professional",
-                "Upgrade Now",
-                "Maybe Later",
-                Messages.getQuestionIcon()
-            );
-            
-            if (result == Messages.YES) {
-                // Open upgrade URL
-                com.intellij.ide.BrowserUtil.browse(licenseService.getUpgradeUrl());
-            }
             return;
         }
 
@@ -97,20 +63,14 @@ public class GenerateLocatorAction extends AnAction {
             return;
         }
 
-        // Record usage
-        usageService.recordAILocatorUsage();
-        
-        int remaining = usageService.getRemainingAILocators();
-        String remainingText = remaining == -1 ? "Unlimited" : String.valueOf(remaining);
-
         // Show suggestions in popup
-        showLocatorPopup(editor, suggestions, project, remainingText);
+        showLocatorPopup(editor, suggestions, project);
     }
 
     private void showLocatorPopup(Editor editor, List<LocatorSuggestion> suggestions, 
-                                 Project project, String remainingLocators) {
+                                 Project project) {
         BaseListPopupStep<LocatorSuggestion> step = new BaseListPopupStep<>(
-            "AI Locator Suggestions (Remaining this month: " + remainingLocators + ")",
+            "AI Locator Suggestions",
             suggestions
         ) {
             @NotNull

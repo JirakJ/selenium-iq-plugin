@@ -1,7 +1,6 @@
-package com.jakubjirak.seleniumiq.premium
+package com.jakubjirak.seleniumiq.features
 
 import com.intellij.openapi.project.Project
-import com.jakubjirak.seleniumiq.licensing.LicenseManager
 import java.time.Instant
 
 data class RecordedAction(
@@ -31,16 +30,11 @@ data class RecordedTest(
 )
 
 class TestRecorder(private val project: Project) {
-    private val licenseManager = LicenseManager.getInstance()
     private var currentRecording: MutableList<RecordedAction>? = null
     private var recordingStartTime: Instant? = null
     private var recordingUrl: String? = null
     
     fun startRecording(url: String): Boolean {
-        if (!licenseManager.hasFeature("test_recorder")) {
-            return false
-        }
-        
         if (currentRecording != null) {
             return false // Already recording
         }
@@ -72,10 +66,6 @@ class TestRecorder(private val project: Project) {
     }
     
     fun recordAction(action: RecordedAction): Boolean {
-        if (!licenseManager.hasFeature("test_recorder")) {
-            return false
-        }
-        
         currentRecording?.add(action) ?: return false
         return true
     }

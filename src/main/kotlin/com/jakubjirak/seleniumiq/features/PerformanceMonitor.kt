@@ -1,7 +1,6 @@
-package com.jakubjirak.seleniumiq.premium
+package com.jakubjirak.seleniumiq.features
 
 import com.intellij.openapi.project.Project
-import com.jakubjirak.seleniumiq.licensing.LicenseManager
 import java.time.Instant
 import java.util.concurrent.ConcurrentHashMap
 
@@ -36,13 +35,8 @@ enum class Severity {
 
 class PerformanceMonitor(private val project: Project) {
     private val metrics = ConcurrentHashMap<String, MutableList<PerformanceMetric>>()
-    private val licenseManager = LicenseManager.getInstance()
     
     fun recordMetric(metric: PerformanceMetric) {
-        if (!licenseManager.hasFeature("performance_monitoring")) {
-            return
-        }
-        
         metrics.computeIfAbsent(metric.testName) { mutableListOf() }.add(metric)
         
         // Keep only last 100 runs per test
@@ -53,10 +47,6 @@ class PerformanceMonitor(private val project: Project) {
     }
     
     fun getPerformanceInsights(testName: String): List<PerformanceInsight> {
-        if (!licenseManager.hasFeature("performance_monitoring")) {
-            return emptyList()
-        }
-        
         val testMetrics = metrics[testName] ?: return emptyList()
         if (testMetrics.isEmpty()) return emptyList()
         
@@ -110,11 +100,7 @@ class PerformanceMonitor(private val project: Project) {
     }
     
     fun getAllMetrics(): Map<String, List<PerformanceMetric>> {
-        return if (licenseManager.hasFeature("performance_monitoring")) {
-            metrics.toMap()
-        } else {
-            emptyMap()
-        }
+        return metrics.toMap()
     }
     
     companion object {
