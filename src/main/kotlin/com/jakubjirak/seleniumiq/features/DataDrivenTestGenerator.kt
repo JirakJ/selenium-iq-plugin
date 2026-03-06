@@ -1,7 +1,6 @@
-package com.jakubjirak.seleniumiq.premium
+package com.jakubjirak.seleniumiq.features
 
 import com.intellij.openapi.project.Project
-import com.jakubjirak.seleniumiq.licensing.LicenseManager
 
 data class TestDataRow(
     val values: Map<String, String>
@@ -15,7 +14,6 @@ data class DataDrivenTest(
 )
 
 class DataDrivenTestGenerator(private val project: Project) {
-    private val licenseManager = LicenseManager.getInstance()
     
     fun generateDataDrivenTest(
         testName: String,
@@ -24,10 +22,6 @@ class DataDrivenTestGenerator(private val project: Project) {
         dataSource: DataSource,
         framework: String = "JUnit"
     ): String? {
-        if (!licenseManager.hasFeature("data_driven_testing")) {
-            return null
-        }
-        
         return when (framework) {
             "JUnit" -> generateJUnitParameterizedTest(testName, testCode, parameters, dataSource)
             "TestNG" -> generateTestNGDataProviderTest(testName, testCode, parameters, dataSource)

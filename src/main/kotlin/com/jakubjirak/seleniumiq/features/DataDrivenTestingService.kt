@@ -1,9 +1,7 @@
-package com.jakubjirak.seleniumiq.premium
+package com.jakubjirak.seleniumiq.features
 
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.project.Project
-import com.jakubjirak.seleniumiq.licensing.LicenseManager
-import com.jakubjirak.seleniumiq.licensing.LicenseTier
 import java.io.File
 import java.io.FileReader
 import com.google.gson.Gson
@@ -22,12 +20,6 @@ class DataDrivenTestingService(private val project: Project) {
     )
     
     fun loadTestDataFromCsv(filePath: String): TestData {
-        val licenseManager = LicenseManager.getInstance(project)
-        
-        if (licenseManager.getCurrentTier() == LicenseTier.FREE) {
-            throw IllegalStateException("Data-driven testing requires Individual tier or higher")
-        }
-        
         val file = File(filePath)
         if (!file.exists()) {
             throw IllegalArgumentException("CSV file not found: $filePath")
@@ -58,12 +50,6 @@ class DataDrivenTestingService(private val project: Project) {
     }
     
     fun loadTestDataFromJson(filePath: String): TestData {
-        val licenseManager = LicenseManager.getInstance(project)
-        
-        if (licenseManager.getCurrentTier() == LicenseTier.FREE) {
-            throw IllegalStateException("Data-driven testing requires Individual tier or higher")
-        }
-        
         val file = File(filePath)
         if (!file.exists()) {
             throw IllegalArgumentException("JSON file not found: $filePath")
@@ -105,12 +91,6 @@ class DataDrivenTestingService(private val project: Project) {
         testData: TestData,
         testTemplate: String
     ): String {
-        val licenseManager = LicenseManager.getInstance(project)
-        
-        if (licenseManager.getCurrentTier() == LicenseTier.FREE) {
-            throw IllegalStateException("Data-driven test generation requires Individual tier or higher")
-        }
-        
         return buildString {
             appendLine("@Test")
             appendLine("@DisplayName(\"$testName\")")
@@ -165,13 +145,6 @@ class DataDrivenTestingService(private val project: Project) {
     }
     
     fun validateTestData(testData: TestData): List<String> {
-        val licenseManager = LicenseManager.getInstance(project)
-        
-        if (licenseManager.getCurrentTier() != LicenseTier.TEAM && 
-            licenseManager.getCurrentTier() != LicenseTier.ENTERPRISE) {
-            throw IllegalStateException("Test data validation requires Team tier or higher")
-        }
-        
         val issues = mutableListOf<String>()
         
         if (testData.data.isEmpty()) {

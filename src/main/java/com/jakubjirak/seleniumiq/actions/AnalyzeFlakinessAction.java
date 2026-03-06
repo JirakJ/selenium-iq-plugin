@@ -10,7 +10,6 @@ import com.intellij.psi.*;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.jakubjirak.seleniumiq.models.FlakinessScore;
 import com.jakubjirak.seleniumiq.services.FlakinessAnalyzer;
-import com.jakubjirak.seleniumiq.services.UsageTrackingService;
 import org.jetbrains.annotations.NotNull;
 
 public class AnalyzeFlakinessAction extends AnAction {
@@ -50,8 +49,6 @@ public class AnalyzeFlakinessAction extends AnAction {
         FlakinessScore score = analyzer.analyzeTest(method);
         String report = analyzer.generateFlakinessReport(score);
         
-        UsageTrackingService.getInstance(project).recordTestAnalysis();
-        
         Messages.showMessageDialog(
             project,
             report,
@@ -63,8 +60,6 @@ public class AnalyzeFlakinessAction extends AnAction {
     private void analyzeFile(Project project, PsiFile file, FlakinessAnalyzer analyzer) {
         FlakinessScore score = analyzer.analyzeTestFile(file);
         String report = analyzer.generateFlakinessReport(score);
-        
-        UsageTrackingService.getInstance(project).recordTestAnalysis();
         
         Messages.showMessageDialog(
             project,

@@ -13,14 +13,14 @@ AI-powered Selenium test automation plugin for JetBrains IDEs that eliminates te
 - **Locator stability annotations** — inline code annotations showing locator reliability scores
 - **Selenium code completion** — intelligent suggestions for Selenium API calls
 - **Cross-browser testing** — support for Chrome, Firefox, Safari, and Edge with browser-specific optimization
-- **Visual regression testing** — pixel-perfect screenshot comparison with baseline management and configurable thresholds (Premium)
-- **Performance analysis** — real-time execution time tracking, slow locator detection, and optimization tips (Premium)
-- **Data-driven testing** — load test data from CSV/JSON, auto-generate parameterized tests with type inference for 15+ data types (Premium)
-- **CI/CD integration** — one-click pipeline generation for GitHub Actions, GitLab CI, Jenkins, CircleCI, Azure DevOps, and Travis CI (Premium)
-- **Cloud platform integration** — BrowserStack, Sauce Labs, LambdaTest, Perfecto with automated RemoteWebDriver configuration (Premium)
-- **Test management integration** — Jira/Zephyr, TestRail, qTest with automatic result updates and screenshot attachments (Premium)
+- **Visual regression testing** — pixel-perfect screenshot comparison with baseline management and configurable thresholds
+- **Performance analysis** — real-time execution time tracking, slow locator detection, and optimization tips
+- **Data-driven testing** — load test data from CSV/JSON, auto-generate parameterized tests with type inference for 15+ data types
+- **CI/CD integration** — one-click pipeline generation for GitHub Actions, GitLab CI, Jenkins, CircleCI, Azure DevOps, and Travis CI
+- **Cloud platform integration** — BrowserStack, Sauce Labs, LambdaTest, Perfecto with automated RemoteWebDriver configuration
+- **Test management integration** — Jira/Zephyr, TestRail, qTest with automatic result updates and screenshot attachments
 - **Team analytics dashboard** — collaboration dashboard with shared metrics and insights
-- **Time-travel debugging** — DOM snapshots with visual diff and step-backward execution (Premium)
+- **Time-travel debugging** — DOM snapshots with visual diff and step-backward execution
 
 ## Installation
 

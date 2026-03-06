@@ -2,8 +2,6 @@ package com.jakubjirak.seleniumiq.team;
 
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.Messages;
-import com.jakubjirak.seleniumiq.licensing.LicenseManager;
-import com.jakubjirak.seleniumiq.licensing.LicenseTier;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalDateTime;
@@ -11,7 +9,6 @@ import java.util.*;
 
 public class TeamCollaborationService {
     private final Project project;
-    private final LicenseManager licenseManager;
     private final Map<String, SharedTestAsset> sharedAssets = new HashMap<>();
     private final List<TeamMember> teamMembers = new ArrayList<>();
 
@@ -80,15 +77,9 @@ public class TeamCollaborationService {
 
     public TeamCollaborationService(@NotNull Project project) {
         this.project = project;
-        this.licenseManager = LicenseManager.getInstance(project);
     }
 
     public boolean shareTestAsset(String name, String content, String type) {
-        if (!isTeamFeature()) {
-            showTeamRequired();
-            return false;
-        }
-
         String id = UUID.randomUUID().toString();
         SharedTestAsset asset = new SharedTestAsset(id, name, content, type, "current-user");
         sharedAssets.put(id, asset);
@@ -214,22 +205,6 @@ public class TeamCollaborationService {
     }
 
     private boolean isTeamFeature() {
-        LicenseTier tier = licenseManager.getCurrentTier();
-        return tier == LicenseTier.TEAM || tier == LicenseTier.ENTERPRISE;
-    }
-
-    private void showTeamRequired() {
-        Messages.showInfoMessage(
-            project,
-            "Team Collaboration features are available in Team and Enterprise plans.\n\n" +
-            "Upgrade to unlock:\n" +
-            "• Shared test asset repository\n" +
-            "• Team analytics dashboard\n" +
-            "• Standards enforcement\n" +
-            "• Collaborative test review\n" +
-            "• Productivity insights\n\n" +
-            "Team plan: $99/month for 5-10 users",
-            "Team Feature Required"
-        );
+        return true;
     }
 }

@@ -1,4 +1,4 @@
-package com.jakubjirak.seleniumiq.premium
+package com.jakubjirak.seleniumiq.features
 
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.project.Project
