@@ -2,6 +2,8 @@
     <id>com.jakubjirak.selenium-iq</id>
     <name>SeleniumIQ - AI-Powered Test Automation</name>
     <vendor email="support@jakubjirak.com" url="https://github.com/JirakJ/selenium-iq-plugin">Jakub Jirak</vendor>
+    <product-descriptor code="PSELENIUMIQPLUG" release-date="20260418" release-version="20263" optional="true"/>
+
 
     <description><![CDATA[<h2>SeleniumIQ — AI-Powered Selenium Test Automation</h2>
 

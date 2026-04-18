@@ -1,5 +1,11 @@
 # Changelog
 
+## [2026.3.6] - 2026-04-18
+
+### Changed
+- Enabled freemium licensing via `<product-descriptor optional="true">`. Plugin remains fully functional without a license; premium features may be introduced in future minor releases.
+
+
 All notable changes to the SeleniumIQ plugin will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
