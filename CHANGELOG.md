@@ -1,9 +1,22 @@
 # Changelog
 
-## [2026.3.6] - 2026-04-18
+## [2026.5.1] - 2026-05-19
 
-### Changed
-- Enabled freemium licensing via `<product-descriptor optional="true">`. Plugin remains fully functional without a license; premium features may be introduced in future minor releases.
+### Fixed
+- **Dashboard buttons now work**: All five tool window buttons ("Generate AI Locator", "Heal Broken Locators",
+  "Analyze Flakiness", "Generate Page Object", "Visual Regression Test") previously had empty action listeners
+  and did nothing when clicked. Each button is now properly wired to its corresponding action logic.
+- **"Generate Page Object" and "Visual Regression Test" buttons added** to the tool window dashboard
+  (they existed in the menu but were missing from the panel).
+- **Editor context menu actions fixed**: "Generate AI Locator", "Heal Broken Locators", and "Analyze Test Flakiness"
+  were declared inside the `<extensions>` block in `plugin.xml` instead of the `<actions>` block, preventing them
+  from appearing in the editor right-click context menu. Moved to `<actions>`.
+- **Settings menu entry fixed**: "SeleniumIQ Settings" added to the SeleniumIQ top-level menu.
+- **Graceful "no editor" feedback**: Dashboard buttons that require an open editor now show a clear info dialog
+  instead of silently doing nothing.
+- **Flakiness analysis uses caret position**: When the cursor is inside a test method, "Analyze Flakiness"
+  now analyzes that specific method rather than the whole file.
+- Replaced `JLabel` with `JBLabel` in the dashboard panel for proper IntelliJ theme support.
 
 
 All notable changes to the SeleniumIQ plugin will be documented in this file.
