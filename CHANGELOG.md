@@ -1,6 +1,30 @@
 # Changelog
 
-## [2026.5.1] - 2026-05-19
+## [2026.5.2] - 2026-05-19
+
+### Added
+- **Heal Broken Locators — fully implemented**: selecting a `By.*` expression in the editor and
+  clicking Heal now performs static analysis and shows a ranked popup of stable replacements.
+  Handles dynamic IDs (numeric/UUID suffixes), absolute XPath (`/html/body/...`), bare class names,
+  and unstable CSS selectors. Choosing a suggestion replaces the selection in-place. No running
+  browser or page HTML required.
+- **Generate Page Object — fully implemented**: generates a real `.java` source file with
+  `@FindBy` + `PageFactory` from either (a) interactive elements fetched from a live URL via Jsoup,
+  or (b) a best-practice template when no URL is provided. The file is written into the project
+  source tree and opened in the editor automatically. Field names and locator strategies are derived
+  from `data-testid`, `id`, `name`, `aria-label`, and compound CSS in order of stability.
+- **`LocatorParser` utility**: new `com.jakubjirak.seleniumiq.util.LocatorParser` class for
+  parsing `By.*` expressions, detecting dynamic IDs, and detecting absolute XPath — shared by
+  Heal Broken Locators and available for future features.
+- **GitHub Copilot prompt** for the Visual Regression feature:
+  `.github/copilot-prompts/visual-regression-feature.md` — detailed spec covering diff algorithm,
+  baseline management, result display, settings persistence, and acceptance criteria.
+
+### Tests
+- 14 new unit tests for `LocatorParser` (parse, isDynamic, isAbsoluteXPath — all quote styles,
+  edge cases, multi-locator snippets).
+
+
 
 ### Fixed
 - **Dashboard buttons now work**: All five tool window buttons ("Generate AI Locator", "Heal Broken Locators",
