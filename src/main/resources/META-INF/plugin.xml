@@ -2,7 +2,7 @@
     <id>com.jakubjirak.selenium-iq</id>
     <name>SeleniumIQ - AI-Powered Test Automation</name>
     <vendor email="support@jakubjirak.com" url="https://github.com/JirakJ/selenium-iq-plugin">Jakub Jirak</vendor>
-    <product-descriptor code="PSELENIUMIQPLUG" release-date="20260418" release-version="20263" optional="true"/>
+    <product-descriptor code="PSELENIUMIQAIPO" release-date="20260519" release-version="20265" optional="true"/>
 
 
     <description><![CDATA[<h2>SeleniumIQ — AI-Powered Selenium Test Automation</h2>
@@ -110,40 +110,6 @@
                     anchor="bottom"
                     factoryClass="com.jakubjirak.seleniumiq.features.TeamAnalyticsDashboard"/>
         
-        <!-- Actions -->
-        <action id="SeleniumIQ.GenerateLocator" 
-                class="com.jakubjirak.seleniumiq.actions.GenerateLocatorAction"
-                text="Generate AI Locator"
-                description="Generate intelligent, stable Selenium locator"
-                icon="/icons/ai-locator.svg">
-            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
-            <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
-            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt L"/>
-        </action>
-        
-        <action id="SeleniumIQ.HealLocators"
-                class="com.jakubjirak.seleniumiq.actions.HealLocatorsAction"
-                text="Heal Broken Locators"
-                description="Automatically fix broken Selenium locators"
-                icon="/icons/heal.svg">
-            <add-to-group group-id="EditorPopupMenu" anchor="after" relative-to-action="SeleniumIQ.GenerateLocator"/>
-        </action>
-        
-        <action id="SeleniumIQ.AnalyzeFlakiness"
-                class="com.jakubjirak.seleniumiq.actions.AnalyzeFlakinessAction"
-                text="Analyze Test Flakiness"
-                description="Predict and identify flaky test patterns"
-                icon="/icons/analyze.svg">
-            <add-to-group group-id="EditorPopupMenu" anchor="after" relative-to-action="SeleniumIQ.HealLocators"/>
-        </action>
-        
-        <action id="SeleniumIQ.Settings"
-                class="com.jakubjirak.seleniumiq.actions.OpenSettingsAction"
-                text="SeleniumIQ Settings"
-                description="Configure SeleniumIQ plugin">
-            <add-to-group group-id="ToolsMenu" anchor="last"/>
-        </action>
-        
         <!-- Inspections -->
         <localInspection language="JAVA"
                         groupName="SeleniumIQ"
@@ -220,6 +186,38 @@
                     class="com.jakubjirak.seleniumiq.features.RequirementsTraceabilityAction"
                     text="Requirements Traceability"
                     description="Generate traceability matrix"/>
+            <separator/>
+            <action id="SeleniumIQ.Settings"
+                    class="com.jakubjirak.seleniumiq.actions.OpenSettingsAction"
+                    text="SeleniumIQ Settings"
+                    description="Configure SeleniumIQ plugin"/>
         </group>
+
+        <!-- Editor context menu actions -->
+        <action id="SeleniumIQ.GenerateLocator"
+                class="com.jakubjirak.seleniumiq.actions.GenerateLocatorAction"
+                text="Generate AI Locator"
+                description="Generate intelligent, stable Selenium locator"
+                icon="/icons/ai-locator.svg">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt L"/>
+        </action>
+
+        <action id="SeleniumIQ.HealLocators"
+                class="com.jakubjirak.seleniumiq.actions.HealLocatorsAction"
+                text="Heal Broken Locators"
+                description="Automatically fix broken Selenium locators"
+                icon="/icons/heal.svg">
+            <add-to-group group-id="EditorPopupMenu" anchor="after" relative-to-action="SeleniumIQ.GenerateLocator"/>
+        </action>
+
+        <action id="SeleniumIQ.AnalyzeFlakiness"
+                class="com.jakubjirak.seleniumiq.actions.AnalyzeFlakinessAction"
+                text="Analyze Test Flakiness"
+                description="Predict and identify flaky test patterns"
+                icon="/icons/analyze.svg">
+            <add-to-group group-id="EditorPopupMenu" anchor="after" relative-to-action="SeleniumIQ.HealLocators"/>
+        </action>
     </actions>
 </idea-plugin>
