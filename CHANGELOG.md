@@ -1,6 +1,12 @@
 # Changelog
 
-## [2026.5.2] - 2026-05-19
+## [2026.5.3] - 2026-05-19
+
+### Changed
+- Version bump and Marketplace re-publish to confirm all 2026.5.x changes
+  are live (button fix + Heal Broken Locators + Generate Page Object).
+
+
 
 ### Added
 - **Heal Broken Locators — fully implemented**: selecting a `By.*` expression in the editor and
