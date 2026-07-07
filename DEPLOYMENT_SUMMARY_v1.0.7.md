@@ -97,7 +97,7 @@
 
 3. **Publish to JetBrains Marketplace:**
    ```bash
-   export PUBLISH_TOKEN="***REMOVED***"
+   export PUBLISH_TOKEN="${PUBLISH_TOKEN}"
    ./gradlew publishPlugin
    ```
 
