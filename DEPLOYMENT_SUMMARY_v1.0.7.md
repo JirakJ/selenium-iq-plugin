@@ -97,7 +97,7 @@
 
 3. **Publish to JetBrains Marketplace:**
    ```bash
-   export PUBLISH_TOKEN="perm-amlyYWs=.OTItMTQwMzU=.8JB6riZRZU95RkuH0MQBfMzNR3Qjty"
+   export PUBLISH_TOKEN="${PUBLISH_TOKEN}"
    ./gradlew publishPlugin
    ```
 

@@ -104,7 +104,7 @@ git push origin v1.0.7
 cd /Users/jirakj/work/selenium-iq-plugin
 
 # Set publish token (provided by user)
-export PUBLISH_TOKEN="perm-amlyYWs=.OTItMTQwMzU=.8JB6riZRZU95RkuH0MQBfMzNR3Qjty"
+export PUBLISH_TOKEN="${PUBLISH_TOKEN}"
 
 # Publish to marketplace
 ./gradlew publishPlugin
