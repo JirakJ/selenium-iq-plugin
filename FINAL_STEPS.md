@@ -86,14 +86,14 @@ git commit -m "feat: Add premium features v1.0.7 - reporting, performance, cloud
 
 ### Step 7: Publish to JetBrains Marketplace
 ```bash
-export PUBLISH_TOKEN="***REMOVED***"
+export PUBLISH_TOKEN="${PUBLISH_TOKEN}"
 ./gradlew publishPlugin
 ```
 
 Or use the provided script:
 ```bash
 chmod +x BUILD_AND_PUBLISH.sh
-export PUBLISH_TOKEN="***REMOVED***"
+export PUBLISH_TOKEN="${PUBLISH_TOKEN}"
 ./BUILD_AND_PUBLISH.sh
 ```
 
