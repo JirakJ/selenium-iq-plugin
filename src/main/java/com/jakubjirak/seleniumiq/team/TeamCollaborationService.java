@@ -88,23 +88,14 @@ public class TeamCollaborationService {
     }
 
     public List<SharedTestAsset> getSharedAssets() {
-        if (!isTeamFeature()) {
-            return Collections.emptyList();
-        }
         return new ArrayList<>(sharedAssets.values());
     }
 
     public Optional<SharedTestAsset> getAssetById(String id) {
-        if (!isTeamFeature()) {
-            return Optional.empty();
-        }
         return Optional.ofNullable(sharedAssets.get(id));
     }
 
     public Map<String, Object> getTeamAnalytics() {
-        if (!isTeamFeature()) {
-            return Collections.emptyMap();
-        }
 
         Map<String, Object> analytics = new HashMap<>();
         analytics.put("totalSharedAssets", sharedAssets.size());
@@ -136,9 +127,6 @@ public class TeamCollaborationService {
     }
 
     public String generateTeamReport() {
-        if (!isTeamFeature()) {
-            return "Team features not available";
-        }
 
         StringBuilder report = new StringBuilder();
         report.append("Team Analytics Report\n");
@@ -167,9 +155,6 @@ public class TeamCollaborationService {
     }
 
     public boolean enforceStandards(String testCode) {
-        if (!isTeamFeature()) {
-            return true;
-        }
 
         List<String> violations = new ArrayList<>();
         
@@ -204,7 +189,4 @@ public class TeamCollaborationService {
         return true;
     }
 
-    private boolean isTeamFeature() {
-        return true;
-    }
 }

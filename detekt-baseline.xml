@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>CyclomaticComplexMethod:TestRecorder.kt$TestRecorder$fun generateTestCode(test: RecordedTest, framework: String = "JUnit"): String</ID>
+    <ID>ImplicitDefaultLocale:TestManagementService.kt$TestManagementService$String.format("%.1f", testCases.size.toDouble() / requirementMap.size * 100)</ID>
+    <ID>LongMethod:APITestGenerator.kt$APITestGenerator$private fun scanForSpringEndpoints(): List&lt;APIEndpoint></ID>
+    <ID>LongMethod:DataDrivenTestGenerator.kt$DataDrivenTestGenerator$private fun generateJUnitParameterizedTest( testName: String, testCode: String, parameters: List&lt;String>, dataSource: DataSource ): String</ID>
+    <ID>LongMethod:TestManagementService.kt$TestManagementService$fun generateTestRailIntegrationCode(): String</ID>
+    <ID>MatchingDeclarationName:CICDIntegration.kt$GenerateCICDConfigAction : AnAction</ID>
+    <ID>MatchingDeclarationName:ComplianceFeatures.kt$GenerateComplianceReportAction : AnAction</ID>
+    <ID>MaxLineLength:TestRecorder.kt$TestRecorder$sb.appendLine(" ((JavascriptExecutor) driver).executeScript(\"arguments[0].scrollIntoView(true);\", driver.findElement(By.${action.locator}));")</ID>
+    <ID>MaxLineLength:TestRecorder.kt$TestRecorder$sb.appendLine(" Assert.assertEquals(\"${action.value}\", driver.findElement(By.${action.locator}).getText());")</ID>
+    <ID>MaxLineLength:TestRecorder.kt$TestRecorder$sb.appendLine(" Assert.assertEquals(driver.findElement(By.${action.locator}).getText(), \"${action.value}\");")</ID>
+    <ID>MaxLineLength:TestRecorder.kt$TestRecorder$sb.appendLine(" new Select(driver.findElement(By.${action.locator})).selectByVisibleText(\"${action.value}\");")</ID>
+    <ID>NestedBlockDepth:APITestGenerator.kt$APITestGenerator$private fun scanForSpringEndpoints(): List&lt;APIEndpoint></ID>
+    <ID>NestedBlockDepth:DataDrivenTestingService.kt$DataDrivenTestingService$fun loadTestDataFromJson(filePath: String): TestData</ID>
+    <ID>NestedBlockDepth:VisualTestingService.kt$VisualTestingService$private fun calculateDiff( baseline: BufferedImage, current: BufferedImage, config: VisualTestConfig ): Int</ID>
+    <ID>UnusedParameter:VisualTestingService.kt$VisualTestingService$config: VisualTestConfig</ID>
+    <ID>UnusedPrivateProperty:DataDrivenTestingService.kt$DataDrivenTestingService$private val gson = Gson()</ID>
+    <ID>UnusedPrivateProperty:DataDrivenTestingService.kt$DataDrivenTestingService$private val project: Project</ID>
+    <ID>UnusedPrivateProperty:GenerateCloudConfigAction.kt$GenerateCloudConfigAction$val code = when (choice) { "BrowserStack" -> service.generateBrowserStackCode("YOUR_USERNAME", "YOUR_KEY") "Sauce Labs" -> service.generateSauceLabsCode("YOUR_USERNAME", "YOUR_KEY") "LambdaTest" -> service.generateLambdaTestCode("YOUR_USERNAME", "YOUR_KEY") else -> "// Configuration for $choice\n// Please configure credentials" }</ID>
+    <ID>UnusedPrivateProperty:GenerateTestManagementAction.kt$GenerateTestManagementAction$val code = when { choiceStr.contains("Jira") || choiceStr.contains("Zephyr") -> service.generateJiraIntegrationCode() choiceStr.contains("TestRail") -> service.generateTestRailIntegrationCode() else -> "// Integration code for $choiceStr\n// Configure your API credentials" }</ID>
+    <ID>UnusedPrivateProperty:PerformanceAnalyzerService.kt$PerformanceAnalyzerService$private val project: Project</ID>
+    <ID>UnusedPrivateProperty:RequirementsTraceabilityAction.kt$RequirementsTraceabilityAction$val matrix = service.generateTraceabilityMatrix(sampleTestCases)</ID>
+    <ID>UnusedPrivateProperty:VisualTestingService.kt$VisualTestingService$private val project: Project</ID>
+    <ID>UseRequire:DataDrivenTestingService.kt$DataDrivenTestingService$throw IllegalArgumentException("CSV file not found: $filePath")</ID>
+    <ID>UseRequire:DataDrivenTestingService.kt$DataDrivenTestingService$throw IllegalArgumentException("JSON file not found: $filePath")</ID>
+    <ID>UseRequire:VisualTestingService.kt$VisualTestingService$throw IllegalArgumentException("Baseline or current screenshot not found")</ID>
+    <ID>UseRequire:VisualTestingService.kt$VisualTestingService$throw IllegalArgumentException("Image dimensions do not match")</ID>
+  </CurrentIssues>
+</SmellBaseline>

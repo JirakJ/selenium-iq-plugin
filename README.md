@@ -1,5 +1,9 @@
 # SeleniumIQ
 
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE) ![Version](https://img.shields.io/badge/version-2026.8.0-green)
+
+> **Free & open source.** Since 2026.8.0 the plugin is completely free — every feature is unlocked for everyone, no license needed — and the source code is available under the Apache License 2.0.
+
 AI-powered Selenium test automation plugin for JetBrains IDEs that eliminates test flakiness with intelligent locator generation, self-healing capabilities, and comprehensive test maintenance tools.
 
 ## Features
@@ -59,6 +63,10 @@ Menu → SeleniumIQ → **Generate Page Object** to auto-create a Page Object Mo
 ./gradlew buildPlugin
 ```
 
+## Contributing
+
+Issues and pull requests are welcome at https://github.com/JirakJ/selenium-iq-plugin.
+
 ## License
 
-Copyright © 2026 Jakub Jirák. All rights reserved.
+Copyright 2026 Jakub Jirák. Licensed under the [Apache License, Version 2.0](LICENSE).

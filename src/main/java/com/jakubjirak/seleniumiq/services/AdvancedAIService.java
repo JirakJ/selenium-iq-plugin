@@ -233,7 +233,7 @@ public final class AdvancedAIService {
         
         optimized.append("/**\n");
         optimized.append(" * AI-Generated Page Object for ").append(pageName).append("\n");
-        optimized.append(" * Created by SeleniumIQ - Premium Feature\n");
+        optimized.append(" * Created by SeleniumIQ\n");
         optimized.append(" * Stability Score: High (ML-Optimized)\n");
         optimized.append(" */\n");
         optimized.append("public class ").append(pageName).append("Page {\n\n");

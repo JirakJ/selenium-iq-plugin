@@ -36,22 +36,6 @@ class TeamAnalyticsDashboard : ToolWindowFactory {
         
         panel.add(metricsPanel, BorderLayout.CENTER)
         
-        val upgradePanel = JPanel(BorderLayout())
-        upgradePanel.border = BorderFactory.createEmptyBorder(10, 10, 10, 10)
-        
-        val upgradeMessage = JLabel(
-            "<html><p><b>💎 Upgrade to Team tier ($99/month) to unlock full analytics</b></p></html>"
-        )
-        val upgradeButton = JButton("Upgrade Now")
-        upgradeButton.addActionListener {
-            java.awt.Desktop.getDesktop().browse(
-                java.net.URI("https://plugins.jetbrains.com/plugin/PSELENIUMIQAIPO/pricing")
-            )
-        }
-        
-        upgradePanel.add(upgradeMessage, BorderLayout.CENTER)
-        upgradePanel.add(upgradeButton, BorderLayout.EAST)
-        panel.add(upgradePanel, BorderLayout.SOUTH)
         
         return panel
     }

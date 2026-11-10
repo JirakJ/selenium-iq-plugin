@@ -32,7 +32,7 @@ selenium-iq-plugin/
 │       ├── java/                # Unit tests
 │       └── resources/           # Test resources
 ├── README.md                     # Project documentation
-├── LICENSE                       # Commercial license
+├── LICENSE                       # Apache License 2.0
 ├── CONTRIBUTING.md               # Contribution guide
 ├── CHANGELOG.md                  # Version history
 └── BUILD.md                      # This file
@@ -155,7 +155,6 @@ export PUBLISH_TOKEN="..."
 - [ ] Update CHANGELOG.md
 - [ ] Run full test suite
 - [ ] Verify plugin in sandbox IDE
-- [ ] Test all license tiers
 - [ ] Check documentation accuracy
 - [ ] Review security vulnerabilities
 - [ ] Update screenshots
