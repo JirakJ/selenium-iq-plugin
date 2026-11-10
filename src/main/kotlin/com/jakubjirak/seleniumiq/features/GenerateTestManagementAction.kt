@@ -50,7 +50,6 @@ class GenerateTestManagementAction : AnAction("Generate Test Management Integrat
                 "✓ Screenshot attachments on failure\n" +
                 "✓ Requirements traceability\n" +
                 "✓ Execution history tracking\n\n" +
-                "💎 Available in Team tier and above\n\n" +
                 "Integration code has been generated.",
                 "Test Management Integration"
             )

@@ -179,7 +179,7 @@ public final class CrossBrowserTestingService {
         code.append("import org.openqa.selenium.remote.DesiredCapabilities;\n");
         code.append("import java.net.URL;\n\n");
         
-        code.append("// BrowserStack Integration - Premium Feature\n");
+        code.append("// BrowserStack Integration\n");
         code.append("public class ").append(testName).append("BrowserStackTest {\n\n");
         
         code.append("    private static final String USERNAME = System.getenv(\"BROWSERSTACK_USERNAME\");\n");
