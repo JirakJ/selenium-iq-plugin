@@ -26,8 +26,7 @@ class GenerateComplianceReportAction : AnAction("Generate Compliance Report") {
             "• Complete audit trails\n" +
             "• Requirements traceability\n" +
             "• Data retention policies\n" +
-            "• Access control logs\n\n" +
-            "🏢 Available in Enterprise tier (custom pricing)",
+            "• Access control logs",
             "Compliance Report"
         )
     }

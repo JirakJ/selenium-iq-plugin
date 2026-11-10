@@ -68,7 +68,7 @@ intellijPlatform {
 
         vendor {
             name = "Jakub Jirák"
-            url = "https://github.com/jakubjirak"
+            url = "https://github.com/JirakJ/selenium-iq-plugin"
         }
     }
 
@@ -103,5 +103,6 @@ tasks {
 
 detekt {
     config.setFrom(files("detekt.yml"))
+    baseline = file("detekt-baseline.xml")
     buildUponDefaultConfig = true
 }

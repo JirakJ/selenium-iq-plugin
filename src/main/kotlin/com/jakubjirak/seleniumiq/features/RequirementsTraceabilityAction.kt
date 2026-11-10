@@ -67,7 +67,6 @@ class RequirementsTraceabilityAction : AnAction("Generate Requirements Traceabil
             "✓ Total Test Cases: ${sampleTestCases.size}\n" +
             "✓ Automated: ${sampleTestCases.count { it.automationStatus == TestManagementService.AutomationStatus.AUTOMATED }}\n" +
             "✓ Coverage: 100%\n\n" +
-            "💎 Full traceability features available in Team tier and above\n\n" +
             "Matrix has been generated and saved.",
             "Requirements Traceability"
         )

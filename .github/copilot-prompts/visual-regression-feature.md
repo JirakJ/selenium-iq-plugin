@@ -102,8 +102,8 @@ Do NOT use IntelliJ Platform test infrastructure — instantiate `VisualTestingS
 - License header on every new file:
   ```
   /*
-   * Copyright (c) 2025 Jakub Jirák. All rights reserved.
-   * Licensed under the proprietary license. See LICENSE for details.
+   * Copyright (c) 2025 Jakub Jirák..
+   * Licensed under the Apache License, Version 2.0. See LICENSE for details.
    */
   ```
 - Use `JBLabel`, `JBScrollPane`, `JBUI.Borders` for all Swing components

@@ -36,8 +36,7 @@ class GenerateCICDConfigAction : AnAction("Generate CI/CD Configuration") {
                 "✓ Parallel test execution\n" +
                 "✓ Automated screenshot upload\n" +
                 "✓ HTML test reports\n" +
-                "✓ Slack notifications\n\n" +
-                "💎 Available in Team tier and above ($99/month)",
+                "✓ Slack notifications",
                 "CI/CD Configuration Generated"
             )
         }

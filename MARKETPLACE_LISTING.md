@@ -76,14 +76,9 @@ SSO (SAML, OAuth, LDAP), RBAC, audit trails, SOC2/ISO 27001/HIPAA compliance rep
 
 ---
 
-### 💰 Pricing Model
+### 💰 Pricing
 
-| Tier | Price | Highlights |
-|------|-------|------------|
-| **Free** | $0 | Syntax highlighting, 50 AI locators/month, 10 Page Objects/month, basic inspections, Chrome-only, 7-day analytics |
-| **Individual Professional** | $19/month or $190/year | Unlimited AI locators, self-healing, flakiness prediction, cross-browser, time-travel debugging, performance insights |
-| **Team** | $99/month (5–10 users) | All Professional features + CI/CD integration, cloud platforms, test management, team analytics dashboard, shared asset repository |
-| **Enterprise** | Custom (starting $499/month) | All Team features + SSO, RBAC, audit trails, compliance reporting, custom AI models, on-premise deployment, dedicated support |
+SeleniumIQ is **completely free and open source** (Apache License 2.0). Every feature is available to everyone — no license or subscription needed.
 
 ---
 
@@ -182,8 +177,6 @@ SSO (SAML, OAuth, LDAP), RBAC, audit trails, SOC2/ISO 27001/HIPAA compliance rep
 - [ ] Plugin description under 255 characters for short description field
 - [ ] Full description formatted in HTML for Marketplace submission
 - [ ] Screenshots captured at 1280×800 minimum resolution
-- [ ] Pricing tiers configured in JetBrains Marketplace vendor portal
-- [ ] License agreement (commercial) uploaded
 - [ ] Plugin JAR/ZIP tested on IntelliJ IDEA 2023.2 (build 232)
 - [ ] Plugin JAR/ZIP tested on latest IntelliJ IDEA version
 - [ ] Change notes prepared for current version

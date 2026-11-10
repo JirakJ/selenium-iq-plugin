@@ -169,7 +169,7 @@ Do not create public issues for security concerns.
 
 ## 📄 License
 
-By contributing, you agree that your contributions will be licensed under the same license as the project (Commercial License).
+By contributing, you agree that your contributions will be licensed under the same license as the project (Apache License 2.0).
 
 ## 🤝 Code of Conduct
 

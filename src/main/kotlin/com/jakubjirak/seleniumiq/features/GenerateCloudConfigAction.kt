@@ -47,7 +47,6 @@ class GenerateCloudConfigAction : AnAction("Generate Cloud Platform Config") {
                 "✓ Parallel execution support\n" +
                 "✓ Screen recording enabled\n" +
                 "✓ Network logs capture\n\n" +
-                "💎 Available in Team tier and above\n\n" +
                 "Code has been copied to clipboard.",
                 "Cloud Configuration Generated"
             )
