@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [2026.9.0] - 2026-11-11
+
 ### Fixed
 - **Locator stability annotations** flagged every Java string containing `.`, `/` or `-` (file names, URLs, messages); they now apply only to arguments of `By.id/xpath/cssSelector/...`.
 - **Generate Test Template** only showed a message and generated nothing; it now generates a JUnit 5 / JUnit 4 / TestNG class and copies it to the clipboard.
