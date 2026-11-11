@@ -1,47 +1,15 @@
 package com.jakubjirak.seleniumiq.features
 
-import com.intellij.openapi.components.Service
-import com.intellij.openapi.project.Project
-import java.time.LocalDateTime
 
-@Service(Service.Level.PROJECT)
-class TestManagementService(private val project: Project) {
+/** Generates starter code for reporting Selenium test results to test-management tools. */
+class TestManagementService {
     
-    data class TestCase(
-        val id: String,
-        val title: String,
-        val description: String,
-        val priority: Priority,
-        val status: TestStatus,
-        val automationStatus: AutomationStatus,
-        val tags: List<String> = emptyList(),
-        val requirements: List<String> = emptyList()
-    )
+    fun generateJiraIntegrationCode(): String = JIRA_TEMPLATE.trimIndent()
     
-    data class TestRun(
-        val id: String,
-        val testCaseId: String,
-        val status: TestStatus,
-        val executedAt: LocalDateTime,
-        val duration: Long,
-        val error: String? = null,
-        val screenshots: List<String> = emptyList()
-    )
-    
-    enum class Priority { CRITICAL, HIGH, MEDIUM, LOW }
-    enum class TestStatus { PASSED, FAILED, BLOCKED, SKIPPED, NOT_RUN }
-    enum class AutomationStatus { AUTOMATED, MANUAL, IN_PROGRESS, NOT_AUTOMATED }
-    
-    enum class TestManagementPlatform {
-        JIRA_ZEPHYR,
-        TEST_RAIL,
-        QTEST,
-        X_RAY,
-        ZEPHYR_SCALE
-    }
-    
-    fun generateJiraIntegrationCode(): String {
-        return """
+    fun generateTestRailIntegrationCode(): String = TESTRAIL_TEMPLATE.trimIndent()
+
+    private companion object {
+        private const val JIRA_TEMPLATE = """
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.ITestResult;
@@ -82,11 +50,9 @@ public class JiraIntegration {
         return result.getMethod().getMethodName();
     }
 }
-        """.trimIndent()
-    }
-    
-    fun generateTestRailIntegrationCode(): String {
-        return """
+        """
+
+        private const val TESTRAIL_TEMPLATE = """
 import com.gurock.testrail.APIClient;
 import com.gurock.testrail.APIException;
 import org.json.simple.JSONObject;
@@ -143,47 +109,6 @@ public class TestRailIntegration {
         return ""; // Implement screenshot URL retrieval
     }
 }
-        """.trimIndent()
-    }
-    
-    fun generateTraceabilityMatrix(testCases: List<TestCase>): String {
-        val sb = StringBuilder()
-        sb.appendLine("# Requirements Traceability Matrix")
-        sb.appendLine()
-        sb.appendLine("Generated: ${LocalDateTime.now()}")
-        sb.appendLine()
-        sb.appendLine("| Requirement | Test Cases | Status | Automation | Priority |")
-        sb.appendLine("|-------------|------------|--------|------------|----------|")
-        
-        val requirementMap = mutableMapOf<String, MutableList<TestCase>>()
-        testCases.forEach { tc ->
-            tc.requirements.forEach { req ->
-                requirementMap.getOrPut(req) { mutableListOf() }.add(tc)
-            }
-        }
-        
-        requirementMap.forEach { (req, cases) ->
-            val caseIds = cases.joinToString(", ") { it.id }
-            val status = if (cases.all { it.status == TestStatus.PASSED }) "✅ Pass" else "❌ Fail"
-            val automation = "${cases.count { it.automationStatus == AutomationStatus.AUTOMATED }}/${cases.size}"
-            val priority = cases.maxByOrNull { it.priority }?.priority ?: Priority.LOW
-            sb.appendLine("| $req | $caseIds | $status | $automation | $priority |")
-        }
-        
-        sb.appendLine()
-        sb.appendLine("## Summary")
-        sb.appendLine("- Total Requirements: ${requirementMap.size}")
-        sb.appendLine("- Total Test Cases: ${testCases.size}")
-        sb.appendLine("- Automated: ${testCases.count { it.automationStatus == AutomationStatus.AUTOMATED}}")
-        sb.appendLine("- Manual: ${testCases.count { it.automationStatus == AutomationStatus.MANUAL }}")
-        sb.appendLine("- Coverage: ${String.format("%.1f", testCases.size.toDouble() / requirementMap.size * 100)}%")
-        
-        return sb.toString()
-    }
-    
-    companion object {
-        fun getInstance(project: Project): TestManagementService {
-            return project.getService(TestManagementService::class.java)
-        }
+        """
     }
 }

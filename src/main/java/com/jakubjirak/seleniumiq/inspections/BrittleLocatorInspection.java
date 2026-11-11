@@ -10,6 +10,8 @@ public class BrittleLocatorInspection extends AbstractBaseJavaLocalInspectionToo
 
     private static final Pattern ABSOLUTE_XPATH = Pattern.compile("/html/body");
     private static final Pattern DYNAMIC_ID = Pattern.compile("\\d{5,}");
+    /** {@code #id} selectors or {@code @id} XPath attributes. */
+    private static final Pattern ID_REFERENCE = Pattern.compile("(^#|@id\\b|\\[id[=~^$*]?)");
 
     @Override
     public @NotNull PsiElementVisitor buildVisitor(@NotNull ProblemsHolder holder, boolean isOnTheFly) {
@@ -25,20 +27,23 @@ public class BrittleLocatorInspection extends AbstractBaseJavaLocalInspectionToo
 
                 String locator = (String) value;
 
-                if (ABSOLUTE_XPATH.matcher(locator).find()) {
-                    holder.registerProblem(
-                        expression,
-                        "Absolute XPath is brittle - consider using relative XPath or CSS selectors",
-                        ProblemHighlightType.WARNING
-                    );
-                } else if (DYNAMIC_ID.matcher(locator).find() && locator.contains("id")) {
-                    holder.registerProblem(
-                        expression,
-                        "ID contains numbers - may be dynamically generated",
-                        ProblemHighlightType.WEAK_WARNING
-                    );
+                String problem = brittleReason(locator);
+                if (problem != null) {
+                    holder.registerProblem(expression, problem,
+                            problem.startsWith("Absolute") ? ProblemHighlightType.WARNING : ProblemHighlightType.WEAK_WARNING);
                 }
             }
         };
+    }
+
+    /** Why {@code locator} is brittle, or {@code null} when it looks fine. */
+    public static String brittleReason(String locator) {
+        if (ABSOLUTE_XPATH.matcher(locator).find()) {
+            return "Absolute XPath is brittle - consider using relative XPath or CSS selectors";
+        }
+        if (DYNAMIC_ID.matcher(locator).find() && ID_REFERENCE.matcher(locator).find()) {
+            return "ID contains a long number - may be dynamically generated";
+        }
+        return null;
     }
 }

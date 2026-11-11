@@ -1,5 +1,20 @@
 # Changelog
 
+## [Unreleased]
+
+### Fixed
+- **Locator stability annotations** flagged every Java string containing `.`, `/` or `-` (file names, URLs, messages); they now apply only to arguments of `By.id/xpath/cssSelector/...`.
+- **Generate Test Template** only showed a message and generated nothing; it now generates a JUnit 5 / JUnit 4 / TestNG class and copies it to the clipboard.
+- **Cloud Platform Setup** and **Test Management Integration** generated code and threw it away while claiming it was copied; the code is now actually copied to the clipboard, and only platforms with real templates are offered.
+- The "Replace with WebDriverWait" quick fix did nothing; it was removed (the Thread.sleep warning stays).
+- Brittle-locator inspection: the dynamic-id check now looks for real id selectors (`#…`, `@id`, `[id…]`) instead of any string containing "id".
+
+### Removed
+- Features that only displayed hard-coded or sample data: Team Analytics tool window, Visual Regression Test, Requirements Traceability Matrix.
+- The empty SeleniumIQ settings page and its menu entry.
+- Unused internal classes (CI/CD, enterprise/SSO, team collaboration, cross-browser, recorder, data-driven, performance and visual services) and their tests.
+- Claims about AI/ML, "86% accuracy", time-travel debugging, CI/CD generation and cross-browser support from the description.
+
 ## [2026.8.0] - 2026-11-10
 
 ### Changed

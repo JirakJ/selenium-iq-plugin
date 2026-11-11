@@ -4,27 +4,23 @@
 
 > **Free & open source.** Since 2026.8.0 the plugin is completely free — every feature is unlocked for everyone, no license needed — and the source code is available under the Apache License 2.0.
 
-AI-powered Selenium test automation plugin for JetBrains IDEs that eliminates test flakiness with intelligent locator generation, self-healing capabilities, and comprehensive test maintenance tools.
+Selenium WebDriver helpers for Java tests in JetBrains IDEs: stable-locator suggestions, locator repair,
+flaky-pattern detection, inspections and code generators. Everything runs locally and is rule-based — there is
+no network service or machine-learning model behind the "stability" and "flakiness" scores.
 
 ## Features
 
-- **AI-powered locator generation** — intelligent multi-attribute analysis generating stable locators (ID, CSS, XPath, data-testid) with stability scoring and dynamic ID filtering (Ctrl+Alt+L)
-- **Self-healing locators** — auto-detects broken locators after UI changes, finds similar elements, and offers one-click replacement across the test suite
-- **Flakiness prediction** — real-time scoring (0–100) across 25+ metrics with 86% prediction accuracy, detecting anti-patterns like `Thread.sleep()`, absolute XPath, and poor wait strategies
-- **Intelligent wait strategies** — analyzes loading patterns and suggests explicit waits, auto-replaces `Thread.sleep()` with `WebDriverWait`, detects AJAX/SPA patterns (React, Angular, Vue)
-- **Page Object generation** — auto-generates Page Object Model classes with type-specific methods, built-in explicit waits, and PageFactory integration
-- **Code inspections** — real-time warnings for flaky test patterns, brittle locators, and poor wait strategies
-- **Locator stability annotations** — inline code annotations showing locator reliability scores
-- **Selenium code completion** — intelligent suggestions for Selenium API calls
-- **Cross-browser testing** — support for Chrome, Firefox, Safari, and Edge with browser-specific optimization
-- **Visual regression testing** — pixel-perfect screenshot comparison with baseline management and configurable thresholds
-- **Performance analysis** — real-time execution time tracking, slow locator detection, and optimization tips
-- **Data-driven testing** — load test data from CSV/JSON, auto-generate parameterized tests with type inference for 15+ data types
-- **CI/CD integration** — one-click pipeline generation for GitHub Actions, GitLab CI, Jenkins, CircleCI, Azure DevOps, and Travis CI
-- **Cloud platform integration** — BrowserStack, Sauce Labs, LambdaTest, Perfecto with automated RemoteWebDriver configuration
-- **Test management integration** — Jira/Zephyr, TestRail, qTest with automatic result updates and screenshot attachments
-- **Team analytics dashboard** — collaboration dashboard with shared metrics and insights
-- **Time-travel debugging** — DOM snapshots with visual diff and step-backward execution
+- **Generate Locator** (Ctrl+Alt+L) — ranked locator suggestions (data-testid, id, name, CSS, XPath) with a stability score
+- **Heal Broken Locators** — for the selected `By.xxx("...")`, proposes more stable replacements (e.g. dynamic id → `data-testid`/`aria-label`, absolute XPath → relative)
+- **Analyze Test Flakiness** — scores a test method by flaky patterns (`Thread.sleep()`, hard-coded waits, missing explicit waits, brittle locators) with recommendations
+- **Inspections** — flaky test patterns, brittle locators (absolute XPath, long numeric ids) and `Thread.sleep()` in tests
+- **Locator stability annotations** — stability score on string literals passed to `By.id/xpath/cssSelector/...`
+- **Completion** — common `driver.findElement(By...)` and WebDriver API entries
+- **Generate Page Object** — fetches a page URL with Jsoup and creates a `@FindBy` Page Object (or a template without a URL)
+- **Generate Test Template** — JUnit 5, JUnit 4 or TestNG test class with WebDriver setup/teardown, copied to the clipboard
+- **Cloud Platform Setup** — RemoteWebDriver starter class for BrowserStack, Sauce Labs or LambdaTest, copied to the clipboard
+- **Test Management Integration** — TestNG listener skeleton for Jira or TestRail, copied to the clipboard
+- **SeleniumIQ tool window** — buttons for the actions above
 
 ## Installation
 
@@ -33,29 +29,22 @@ AI-powered Selenium test automation plugin for JetBrains IDEs that eliminates te
 
 ## Requirements
 
-- IntelliJ IDEA 2023.2+ (build 232+)
-- Any JetBrains IDE with Java support (IntelliJ IDEA, etc.)
+- IntelliJ IDEA 2024.3+ (build 243+) with Java support
 - Selenium WebDriver in your project dependencies
-
-## Configuration
-
-Settings → Tools → SeleniumIQ
-
-Configure AI locator preferences, inspection severity levels, and cloud platform credentials.
 
 ## Usage
 
-### Generate AI Locators
-Right-click in your test code → SeleniumIQ → **Generate AI Locator** (Ctrl+Alt+L). The AI analyzes the target element and generates multiple locator strategies ranked by stability score.
+### Generate Locators
+Right-click in your test code → **Generate Locator** (Ctrl+Alt+L) to get locator strategies ranked by stability score.
 
 ### Heal Broken Locators
-When locators break after UI changes, right-click → SeleniumIQ → **Heal Broken Locators** to auto-detect and fix broken selectors across your test suite.
+Select a `By.xxx("...")` expression → right-click → **Heal Broken Locators** to see more stable replacements.
 
 ### Analyze Test Flakiness
-Right-click → SeleniumIQ → **Analyze Test Flakiness** to get a reliability score with actionable recommendations for reducing test flakiness.
+Right-click inside a test method → **Analyze Test Flakiness** for a risk score with recommendations.
 
 ### Generate Page Objects
-Menu → SeleniumIQ → **Generate Page Object** to auto-create a Page Object Model class from the current page structure.
+**SeleniumIQ → Generate Page Object**, enter a page URL (or leave it blank for a template) and a class name.
 
 ## Building from Source
 

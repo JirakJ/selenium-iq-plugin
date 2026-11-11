@@ -1,55 +1,50 @@
+/*
+ * Copyright 2026 Jakub Jirák
+ * SPDX-License-Identifier: Apache-2.0
+ */
 package com.jakubjirak.seleniumiq.features
 
 import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
+import com.intellij.openapi.ide.CopyPasteManager
 import com.intellij.openapi.ui.Messages
-import javax.swing.JOptionPane
+import java.awt.datatransfer.StringSelection
 
+/** Copies a RemoteWebDriver starter class for the chosen Selenium cloud grid to the clipboard. */
 class GenerateCloudConfigAction : AnAction("Generate Cloud Platform Config") {
+
     override fun getActionUpdateThread(): ActionUpdateThread = ActionUpdateThread.BGT
 
     override fun actionPerformed(e: AnActionEvent) {
         val project = e.project ?: return
-        
-        val platforms = arrayOf(
-            "BrowserStack",
-            "Sauce Labs",
-            "LambdaTest",
-            "Perfecto Mobile",
-            "CrossBrowserTesting"
+        val choice = Messages.showEditableChooseDialog(
+            "Select cloud platform:", "Generate Cloud Configuration", Messages.getQuestionIcon(),
+            PLATFORMS, PLATFORMS[0], null
+        ) ?: return
+        val code = codeFor(choice) ?: return
+        CopyPasteManager.getInstance().setContents(StringSelection(code))
+        Messages.showInfoMessage(
+            project,
+            "A $choice RemoteWebDriver test class was copied to the clipboard.\n" +
+                "Paste it into your test sources and replace YOUR_USERNAME / YOUR_KEY " +
+                "(better: read them from environment variables).",
+            "Cloud Configuration Generated"
         )
-        
-        val choice = JOptionPane.showInputDialog(
-            null,
-            "Select Cloud Platform:",
-            "Generate Cloud Configuration",
-            JOptionPane.QUESTION_MESSAGE,
-            null,
-            platforms,
-            platforms[0]
-        )
-        
-        if (choice != null) {
-            val service = CloudPlatformService.getInstance(project)
-            val code = when (choice) {
-                "BrowserStack" -> service.generateBrowserStackCode("YOUR_USERNAME", "YOUR_KEY")
-                "Sauce Labs" -> service.generateSauceLabsCode("YOUR_USERNAME", "YOUR_KEY")
-                "LambdaTest" -> service.generateLambdaTestCode("YOUR_USERNAME", "YOUR_KEY")
-                else -> "// Configuration for $choice\n// Please configure credentials"
+    }
+
+    companion object {
+        val PLATFORMS = arrayOf("BrowserStack", "Sauce Labs", "LambdaTest")
+
+        /** Generated class for [platform], or null for an unknown platform. */
+        fun codeFor(platform: String): String? {
+            val generator = CloudPlatformService()
+            return when (platform) {
+                "BrowserStack" -> generator.generateBrowserStackCode("YOUR_USERNAME", "YOUR_KEY")
+                "Sauce Labs" -> generator.generateSauceLabsCode("YOUR_USERNAME", "YOUR_KEY")
+                "LambdaTest" -> generator.generateLambdaTestCode("YOUR_USERNAME", "YOUR_KEY")
+                else -> null
             }
-            
-            Messages.showInfoMessage(
-                project,
-                "Cloud Platform configuration for $choice generated!\n\n" +
-                "Features included:\n" +
-                "✓ Remote WebDriver setup\n" +
-                "✓ Parallel execution support\n" +
-                "✓ Screen recording enabled\n" +
-                "✓ Network logs capture\n\n" +
-                "Code has been copied to clipboard.",
-                "Cloud Configuration Generated"
-            )
         }
     }
 }

@@ -1,58 +1,48 @@
+/*
+ * Copyright 2026 Jakub Jirák
+ * SPDX-License-Identifier: Apache-2.0
+ */
 package com.jakubjirak.seleniumiq.features
 
 import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
+import com.intellij.openapi.ide.CopyPasteManager
 import com.intellij.openapi.ui.Messages
-import javax.swing.JOptionPane
+import java.awt.datatransfer.StringSelection
 
+/** Copies a TestNG listener skeleton that reports results to Jira or TestRail to the clipboard. */
 class GenerateTestManagementAction : AnAction("Generate Test Management Integration") {
+
     override fun getActionUpdateThread(): ActionUpdateThread = ActionUpdateThread.BGT
 
     override fun actionPerformed(e: AnActionEvent) {
         val project = e.project ?: return
-        
-        val platforms = arrayOf(
-            "Jira/Zephyr",
-            "TestRail",
-            "qTest",
-            "Xray",
-            "Zephyr Scale"
+        val choice = Messages.showEditableChooseDialog(
+            "Select test management platform:", "Generate Test Management Integration",
+            Messages.getQuestionIcon(), PLATFORMS, PLATFORMS[0], null
+        ) ?: return
+        val code = codeFor(choice) ?: return
+        CopyPasteManager.getInstance().setContents(StringSelection(code))
+        Messages.showInfoMessage(
+            project,
+            "A $choice TestNG integration skeleton was copied to the clipboard.\n" +
+                "It reads credentials from environment variables; complete the placeholder methods for your instance.",
+            "Test Management Integration"
         )
-        
-        val choice = JOptionPane.showInputDialog(
-            null,
-            "Select Test Management Platform:",
-            "Generate Test Management Integration",
-            JOptionPane.QUESTION_MESSAGE,
-            null,
-            platforms,
-            platforms[0]
-        )
-        
-        if (choice != null) {
-            val service = project.getService(TestManagementService::class.java)
-            val choiceStr = choice.toString()
-            val code = when {
-                choiceStr.contains("Jira") || choiceStr.contains("Zephyr") -> 
-                    service.generateJiraIntegrationCode()
-                choiceStr.contains("TestRail") -> 
-                    service.generateTestRailIntegrationCode()
-                else -> 
-                    "// Integration code for $choiceStr\n// Configure your API credentials"
+    }
+
+    companion object {
+        val PLATFORMS = arrayOf("Jira", "TestRail")
+
+        /** Generated skeleton for [platform], or null for an unknown platform. */
+        fun codeFor(platform: String): String? {
+            val generator = TestManagementService()
+            return when (platform) {
+                "Jira" -> generator.generateJiraIntegrationCode()
+                "TestRail" -> generator.generateTestRailIntegrationCode()
+                else -> null
             }
-            
-            Messages.showInfoMessage(
-                project,
-                "Test Management integration for $choice generated!\n\n" +
-                "Features included:\n" +
-                "✓ Automatic test result updates\n" +
-                "✓ Screenshot attachments on failure\n" +
-                "✓ Requirements traceability\n" +
-                "✓ Execution history tracking\n\n" +
-                "Integration code has been generated.",
-                "Test Management Integration"
-            )
         }
     }
 }

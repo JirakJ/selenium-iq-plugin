@@ -27,7 +27,6 @@ import com.jakubjirak.seleniumiq.actions.AnalyzeFlakinessAction;
 import com.jakubjirak.seleniumiq.actions.GenerateLocatorAction;
 import com.jakubjirak.seleniumiq.actions.GeneratePageObjectAction;
 import com.jakubjirak.seleniumiq.actions.HealLocatorsAction;
-import com.jakubjirak.seleniumiq.features.VisualRegressionAction;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
@@ -65,8 +64,8 @@ public class SeleniumIQToolWindowFactory implements ToolWindowFactory {
 
             addSectionLabel("Locator Tools");
 
-            addButton("Generate AI Locator",
-                    "Generate stable Selenium locators with AI (Ctrl+Alt+L)",
+            addButton("Generate Locator",
+                    "Suggest stable Selenium locators ranked by stability (Ctrl+Alt+L)",
                     e -> {
                         Editor editor = getSelectedEditor(project);
                         if (editor == null) {
@@ -135,15 +134,6 @@ public class SeleniumIQToolWindowFactory implements ToolWindowFactory {
                                 .add(CommonDataKeys.PROJECT, project)
                                 .build();
                         invokeAction(new GeneratePageObjectAction(), ctx);
-                    });
-
-            addButton("Visual Regression Test",
-                    "Compare screenshots for visual regressions",
-                    e -> {
-                        DataContext ctx = SimpleDataContext.builder()
-                                .add(CommonDataKeys.PROJECT, project)
-                                .build();
-                        invokeAction(new VisualRegressionAction(), ctx);
                     });
 
             contentPanel.add(Box.createVerticalGlue());

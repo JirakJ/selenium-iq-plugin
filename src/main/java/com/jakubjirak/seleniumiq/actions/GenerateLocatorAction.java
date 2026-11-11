@@ -42,7 +42,7 @@ public class GenerateLocatorAction extends AnAction {
         String htmlInput = Messages.showInputDialog(
             project,
             "Paste HTML snippet of the element you want to locate:",
-            "Generate AI Locator",
+            "Generate Locator",
             Messages.getQuestionIcon()
         );
 
