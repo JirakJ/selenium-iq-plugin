@@ -162,8 +162,8 @@ For UI changes:
 
 ## 🔒 Security
 
-Report security vulnerabilities privately to:
-security@seleniumiq.com
+Report security vulnerabilities privately via GitHub's "Report a vulnerability" (Security tab) or to
+support@jakubjirak.com.
 
 Do not create public issues for security concerns.
 
@@ -196,15 +196,13 @@ Contributors are recognized in:
 
 ## 📞 Questions?
 
-- Email: dev@seleniumiq.com
-- Discord: https://discord.gg/seleniumiq
-- GitHub Discussions: Use for questions
+- GitHub Issues: https://github.com/JirakJ/selenium-iq-plugin/issues
 
 ## 🎯 Priority Areas
 
 We especially welcome contributions in:
 
-1. **AI/ML improvements**
+1. **Heuristic improvements**
    - Locator stability prediction
    - Self-healing accuracy
    - Flakiness detection

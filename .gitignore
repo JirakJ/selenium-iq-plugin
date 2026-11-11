@@ -35,3 +35,9 @@ secrets/
 *.key
 *.pem
 license-keys.txt
+
+# IntelliJ Platform Gradle plugin cache
+.intellijPlatform/
+
+# Secrets
+.env
