@@ -4,80 +4,51 @@
     <vendor email="support@jakubjirak.com" url="https://github.com/JirakJ/selenium-iq-plugin">Jakub Jirak</vendor>
 
 
-    <description><![CDATA[<h2>SeleniumIQ — AI-Powered Selenium Test Automation</h2>
+    <description><![CDATA[<h2>SeleniumIQ — Selenium WebDriver helpers for Java tests</h2>
 
 <p>
-  Selenium tests that fix themselves. SeleniumIQ brings AI to Selenium WebDriver —
-  generating stable locators, self-healing broken selectors, predicting flaky tests,
-  and providing time-travel debugging with full DOM snapshots.
+  Heuristic, offline tooling for Selenium WebDriver tests written in Java: stable-locator suggestions,
+  locator repair, flaky-test pattern detection, inspections and code generators. No network services or
+  machine-learning models are involved — every check is a deterministic rule you can read in the source.
 </p>
 
-<h3>AI-Powered Locators</h3>
+<h3>Locators</h3>
 <ul>
-  <li><b>AI Locator Generation</b> — Smart locators with stability scoring across ID, CSS, XPath, and data-testid</li>
-  <li><b>Self-Healing Locators</b> — Automatically detect and repair broken selectors when the DOM changes</li>
-  <li><b>Locator Stability Annotations</b> — Inline stability scores for every locator in your code</li>
+  <li><b>Generate Locator</b> (Ctrl+Alt+L) — ranked locator suggestions (data-testid, id, name, CSS, XPath) with a stability score</li>
+  <li><b>Heal Broken Locators</b> — proposes more stable replacements for the selected locator</li>
+  <li><b>Locator stability annotations</b> — inline warnings for fragile locators (absolute XPath, generated ids, indexes)</li>
 </ul>
 
-<h3>Test Quality</h3>
+<h3>Test quality</h3>
 <ul>
-  <li><b>Flakiness Prediction</b> — 86% accuracy across 25+ test health metrics</li>
-  <li><b>Intelligent Wait Strategies</b> — Replace Thread.sleep with smart WebDriverWait including AJAX/SPA detection</li>
-  <li><b>Code Inspections</b> — Detect flaky patterns, brittle locators, and poor wait strategies inline</li>
-  <li><b>Selenium Code Completion</b> — Context-aware completion for WebDriver API</li>
+  <li><b>Analyze Test Flakiness</b> — scores a test method by flaky patterns (Thread.sleep, hard-coded waits, missing waits, brittle locators)</li>
+  <li><b>Inspections</b> — flaky test patterns, brittle locators and Thread.sleep() in Selenium tests</li>
+  <li><b>Completion</b> — WebDriver / By API entries</li>
 </ul>
 
-<h3>Test Generation</h3>
+<h3>Code generation</h3>
 <ul>
-  <li><b>Page Object Generator</b> — Auto-generate Page Object Model classes with PageFactory integration</li>
-  <li><b>Test Template Generator</b> — Create Selenium test templates with best practices built in</li>
-  <li><b>Data-Driven Testing</b> — Load test data from CSV and JSON files</li>
-</ul>
-
-<h3>Debugging and Analysis</h3>
-<ul>
-  <li><b>Time-Travel Debugging</b> — Replay test executions with DOM snapshots at each step</li>
-  <li><b>Visual Regression Testing</b> — Pixel-perfect screenshot comparison with baseline management</li>
-  <li><b>Performance Analyzer</b> — Identify slow locators and operations</li>
-</ul>
-
-<h3>Integration</h3>
-<ul>
-  <li><b>Cloud Platforms</b> — BrowserStack, Sauce Labs, LambdaTest</li>
-  <li><b>Test Management</b> — Jira/Zephyr, TestRail, qTest</li>
-  <li><b>CI/CD</b> — GitHub Actions, GitLab CI, Jenkins, CircleCI, Azure DevOps</li>
-  <li><b>Cross-Browser</b> — Chrome, Firefox, Safari, Edge</li>
+  <li><b>Generate Page Object</b> — from a page URL (fetched with Jsoup) or as a template, with <code>@FindBy</code> fields</li>
+  <li><b>Generate Test Template</b> — a JUnit 5, JUnit 4 or TestNG Selenium test skeleton</li>
+  <li><b>Cloud Platform Setup</b> — RemoteWebDriver starter class for BrowserStack, Sauce Labs or LambdaTest (copied to the clipboard)</li>
+  <li><b>Test Management Integration</b> — TestNG listener skeleton for Jira or TestRail (copied to the clipboard)</li>
 </ul>
 
 <h3>Requirements</h3>
 <ul>
-  <li>IntelliJ IDEA 2024.1+ with Java support</li>
+  <li>IntelliJ IDEA 2024.3+ with Java support</li>
   <li>Selenium WebDriver in your project dependencies</li>
 </ul>
 
 <h3>Support</h3>
 <ul>
-  <li>Website: <a href="https://github.com/JirakJ/selenium-iq-plugin">GitHub</a></li>
-  <li>Issues: <a href="https://github.com/JirakJ/selenium-iq-plugin">GitHub</a></li>
-  <li>Email: support@jakubjirak.com</li>
+  <li>Source: <a href="https://github.com/JirakJ/selenium-iq-plugin">github.com/JirakJ/selenium-iq-plugin</a></li>
+  <li>Issues: <a href="https://github.com/JirakJ/selenium-iq-plugin/issues">GitHub Issues</a></li>
 </ul>]]></description>
 
     <change-notes><![CDATA[
 <h3>2026.8.0</h3><ul><li>The plugin is now completely free — all features unlocked, no license needed.</li><li>Source code is now open source under Apache-2.0: https://github.com/JirakJ/selenium-iq-plugin</li></ul>
 
-        <h3>What's New</h3>
-        <ul>
-            <li><b>AI Locator Generation</b> - Generate stable element locators with stability scoring across ID, CSS, XPath, and data-testid strategies</li>
-            <li><b>Self-Healing Locators</b> - Automatically detect and repair broken selectors when the DOM changes</li>
-            <li><b>Flakiness Prediction</b> - Predict flaky tests with 86% accuracy using 25+ test health metrics</li>
-            <li><b>Intelligent Wait Strategies</b> - Replace Thread.sleep with smart WebDriverWait including AJAX and SPA detection</li>
-            <li><b>Page Object Generator</b> - Auto-generate Page Object Model classes with PageFactory integration from web pages</li>
-            <li><b>Time-Travel Debugging</b> - Replay test executions step by step with full DOM snapshots at each point</li>
-            <li><b>Visual Regression Testing</b> - Pixel-perfect screenshot comparison with baseline management and diff highlighting</li>
-            <li><b>Cloud Platform Integration</b> - One-click setup for BrowserStack, Sauce Labs, and LambdaTest</li>
-            <li><b>Test Management Integration</b> - Sync results with Jira/Zephyr, TestRail, and qTest</li>
-            <li><b>Code Inspections</b> - Detect flaky patterns, brittle locators, and poor wait strategies directly in the editor</li>
-        </ul>
     ]]></change-notes>
 
     <depends>com.intellij.modules.platform</depends>
@@ -87,11 +58,6 @@
     <extensions defaultExtensionNs="com.intellij">
         <!-- Project Service -->
         <projectService serviceImplementation="com.jakubjirak.seleniumiq.services.SeleniumIQProjectService"/>
-        <projectService serviceImplementation="com.jakubjirak.seleniumiq.features.CloudPlatformService"/>
-        <projectService serviceImplementation="com.jakubjirak.seleniumiq.features.TestManagementService"/>
-        <projectService serviceImplementation="com.jakubjirak.seleniumiq.features.VisualTestingService"/>
-        <projectService serviceImplementation="com.jakubjirak.seleniumiq.features.PerformanceAnalyzerService"/>
-        <projectService serviceImplementation="com.jakubjirak.seleniumiq.features.DataDrivenTestingService"/>
         
         <!-- Application Services -->
         <applicationService serviceImplementation="com.jakubjirak.seleniumiq.services.AILocatorService"/>
@@ -104,12 +70,6 @@
                     icon="/icons/seleniumiq.svg" 
                     anchor="right"
                     factoryClass="com.jakubjirak.seleniumiq.toolwindow.SeleniumIQToolWindowFactory"/>
-        
-        <toolWindow id="Team Analytics"
-                    secondary="true"
-                    icon="/icons/analytics.svg"
-                    anchor="bottom"
-                    factoryClass="com.jakubjirak.seleniumiq.features.TeamAnalyticsDashboard"/>
         
         <!-- Inspections -->
         <localInspection language="JAVA"
@@ -133,12 +93,6 @@
                         level="WARNING"
                         implementationClass="com.jakubjirak.seleniumiq.inspections.WaitStrategyInspection"/>
         
-        <!-- Configurables (Settings) -->
-        <projectConfigurable parentId="tools"
-                           instance="com.jakubjirak.seleniumiq.settings.SeleniumIQConfigurable"
-                           id="com.jakubjirak.seleniumiq.settings"
-                           displayName="SeleniumIQ"/>
-        
         <!-- Code Completion -->
         <completion.contributor language="JAVA"
                               implementationClass="com.jakubjirak.seleniumiq.completion.SeleniumCompletionContributor"/>
@@ -154,12 +108,12 @@
     </extensions>
 
     <actions>
-        <group id="SeleniumIQ.MainMenu" text="SeleniumIQ" description="SeleniumIQ AI Testing Tools" popup="true">
+        <group id="SeleniumIQ.MainMenu" text="SeleniumIQ" description="SeleniumIQ Selenium testing tools" popup="true">
             <add-to-group group-id="MainMenu" anchor="after" relative-to-action="ToolsMenu"/>
             <action id="SeleniumIQ.Dashboard" 
                     class="com.jakubjirak.seleniumiq.actions.OpenDashboardAction"
                     text="Open Dashboard"
-                    description="Open SeleniumIQ analytics dashboard"/>
+                    description="Open the SeleniumIQ tool window"/>
             <separator/>
             <action id="SeleniumIQ.GeneratePageObject"
                     class="com.jakubjirak.seleniumiq.actions.GeneratePageObjectAction"
@@ -170,11 +124,6 @@
                     text="Generate Test Template"
                     description="Generate Selenium test template"/>
             <separator/>
-            <action id="SeleniumIQ.VisualRegression"
-                    class="com.jakubjirak.seleniumiq.features.VisualRegressionAction"
-                    text="Visual Regression Test"
-                    description="Compare screenshots for visual regressions"/>
-            <separator/>
             <action id="SeleniumIQ.CloudPlatform"
                     class="com.jakubjirak.seleniumiq.features.GenerateCloudConfigAction"
                     text="Cloud Platform Setup"
@@ -183,22 +132,13 @@
                     class="com.jakubjirak.seleniumiq.features.GenerateTestManagementAction"
                     text="Test Management Integration"
                     description="Integrate with test management systems"/>
-            <action id="SeleniumIQ.Traceability"
-                    class="com.jakubjirak.seleniumiq.features.RequirementsTraceabilityAction"
-                    text="Requirements Traceability"
-                    description="Generate traceability matrix"/>
-            <separator/>
-            <action id="SeleniumIQ.Settings"
-                    class="com.jakubjirak.seleniumiq.actions.OpenSettingsAction"
-                    text="SeleniumIQ Settings"
-                    description="Configure SeleniumIQ plugin"/>
         </group>
 
         <!-- Editor context menu actions -->
         <action id="SeleniumIQ.GenerateLocator"
                 class="com.jakubjirak.seleniumiq.actions.GenerateLocatorAction"
-                text="Generate AI Locator"
-                description="Generate intelligent, stable Selenium locator"
+                text="Generate Locator"
+                description="Suggest stable Selenium locators ranked by stability"
                 icon="/icons/ai-locator.svg">
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
             <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>

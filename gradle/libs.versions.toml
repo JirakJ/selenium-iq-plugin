@@ -3,15 +3,10 @@ kotlin = "2.1.0"
 intellij-platform = "2.3.0"
 junit = "5.11.4"
 detekt = "1.23.7"
-proguard = "7.6.1"
 jsoup = "1.17.1"
-gson = "2.10.1"
-commons-csv = "1.10.0"
 
 [libraries]
 jsoup = { module = "org.jsoup:jsoup", version.ref = "jsoup" }
-gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
-commons-csv = { module = "org.apache.commons:commons-csv", version.ref = "commons-csv" }
 junit-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
 junit-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
 

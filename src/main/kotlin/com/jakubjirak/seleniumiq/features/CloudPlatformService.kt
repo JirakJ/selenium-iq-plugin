@@ -1,25 +1,8 @@
 package com.jakubjirak.seleniumiq.features
 
-import com.intellij.openapi.components.Service
-import com.intellij.openapi.project.Project
 
-@Service(Service.Level.PROJECT)
-class CloudPlatformService(private val project: Project) {
-    
-    enum class CloudProvider {
-        BROWSERSTACK,
-        SAUCE_LABS,
-        LAMBDA_TEST,
-        PERFECTO,
-        CROSSBROWSER_TESTING
-    }
-    
-    data class CloudConfig(
-        val provider: CloudProvider,
-        val username: String,
-        val accessKey: String,
-        val capabilities: Map<String, Any> = emptyMap()
-    )
+/** Generates RemoteWebDriver starter classes for Selenium cloud grids. */
+class CloudPlatformService {
     
     fun generateBrowserStackCode(username: String, accessKey: String): String {
         return """
@@ -132,46 +115,5 @@ public class LambdaTestTest {
     }
 }
         """.trimIndent()
-    }
-    
-    fun generateParallelExecutionCode(provider: CloudProvider, parallelCount: Int): String {
-        val url = when (provider) {
-            CloudProvider.BROWSERSTACK -> "https://USERNAME:KEY@hub-cloud.browserstack.com/wd/hub"
-            CloudProvider.SAUCE_LABS -> "https://USERNAME:KEY@ondemand.us-west-1.saucelabs.com:443/wd/hub"
-            CloudProvider.LAMBDA_TEST -> "https://USERNAME:KEY@hub.lambdatest.com/wd/hub"
-            else -> "https://hub.example.com/wd/hub"
-        }
-        
-        return """
-import org.testng.annotations.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import java.net.URL;
-
-public class ParallelTests {
-    
-    @Test(threadPoolSize = $parallelCount, invocationCount = $parallelCount)
-    public void parallelTest() throws Exception {
-        DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("browserName", "Chrome");
-        
-        WebDriver driver = new RemoteWebDriver(new URL("$url"), caps);
-        
-        try {
-            driver.get("https://example.com");
-            // Your test code here
-        } finally {
-            driver.quit();
-        }
-    }
-}
-        """.trimIndent()
-    }
-    
-    companion object {
-        fun getInstance(project: Project): CloudPlatformService {
-            return project.getService(CloudPlatformService::class.java)
-        }
     }
 }

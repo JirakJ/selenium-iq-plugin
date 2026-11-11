@@ -100,7 +100,7 @@ public class HealLocatorsAction extends AnAction {
      * Generates healing suggestions by statically analysing the parsed locator.
      * No running browser or page HTML is required.
      */
-    private List<LocatorSuggestion> buildHealingSuggestions(ParsedLocator locator) {
+    static List<LocatorSuggestion> buildHealingSuggestions(ParsedLocator locator) {
         List<LocatorSuggestion> suggestions = new ArrayList<>();
 
         switch (locator.type()) {
@@ -127,7 +127,7 @@ public class HealLocatorsAction extends AnAction {
         return suggestions;
     }
 
-    private void healId(ParsedLocator locator, List<LocatorSuggestion> out) {
+    private static void healId(ParsedLocator locator, List<LocatorSuggestion> out) {
         if (!LocatorParser.isDynamic(locator)) return; // stable ID — no action needed
 
         String semantic = semanticName(locator.value());
@@ -159,7 +159,7 @@ public class HealLocatorsAction extends AnAction {
         ));
     }
 
-    private void healXpath(ParsedLocator locator, List<LocatorSuggestion> out) {
+    private static void healXpath(ParsedLocator locator, List<LocatorSuggestion> out) {
         if (!LocatorParser.isAbsoluteXPath(locator)) return; // relative XPath — acceptable
 
         // Convert absolute XPath to relative by taking the deepest meaningful segment
@@ -194,7 +194,7 @@ public class HealLocatorsAction extends AnAction {
         ));
     }
 
-    private void healClassName(ParsedLocator locator, List<LocatorSuggestion> out) {
+    private static void healClassName(ParsedLocator locator, List<LocatorSuggestion> out) {
         String cls = locator.value().split("\\s+")[0]; // className supports only one class
 
         out.add(new LocatorSuggestion(
@@ -215,7 +215,7 @@ public class HealLocatorsAction extends AnAction {
         ));
     }
 
-    private void healCssSelector(ParsedLocator locator, List<LocatorSuggestion> out) {
+    private static void healCssSelector(ParsedLocator locator, List<LocatorSuggestion> out) {
         // Only flag if selector looks unstable (no attribute, just a plain class or tag)
         boolean hasAttribute = locator.value().contains("[");
         boolean hasId = locator.value().contains("#");
@@ -231,7 +231,7 @@ public class HealLocatorsAction extends AnAction {
         ));
     }
 
-    private void healName(ParsedLocator locator, List<LocatorSuggestion> out) {
+    private static void healName(ParsedLocator locator, List<LocatorSuggestion> out) {
         // name attribute is generally stable; only suggest if value looks dynamic
         if (!LocatorParser.isDynamic(locator)) return;
 

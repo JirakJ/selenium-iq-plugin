@@ -28,24 +28,10 @@ public class WaitStrategyInspection extends AbstractBaseJavaLocalInspectionTool 
                     holder.registerProblem(
                         expression,
                         "Thread.sleep() creates flaky tests - use explicit waits (WebDriverWait)",
-                        ProblemHighlightType.WARNING,
-                        new ReplaceWithExplicitWaitFix()
+                        ProblemHighlightType.WARNING
                     );
                 }
             }
         };
-    }
-
-    private static class ReplaceWithExplicitWaitFix implements LocalQuickFix {
-        @Override
-        public @NotNull String getFamilyName() {
-            return "Replace with WebDriverWait";
-        }
-
-        @Override
-        public void applyFix(@NotNull com.intellij.openapi.project.Project project, 
-                           @NotNull ProblemDescriptor descriptor) {
-            // TODO: Implement actual replacement logic
-        }
     }
 }

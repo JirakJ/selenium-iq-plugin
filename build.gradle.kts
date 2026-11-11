@@ -1,12 +1,3 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("com.guardsquare:proguard-gradle:7.6.1")
-    }
-}
-
 plugins {
     id("java")
     alias(libs.plugins.kotlin.jvm)
@@ -35,14 +26,11 @@ dependencies {
             providers.gradleProperty("platformVersion"),
         )
         bundledPlugin("com.intellij.java")
-        instrumentationTools()
         pluginVerifier()
         zipSigner()
     }
 
     implementation(libs.jsoup)
-    implementation(libs.gson)
-    implementation(libs.commons.csv)
 
     testImplementation(libs.junit.api)
     testRuntimeOnly(libs.junit.engine)
@@ -103,6 +91,5 @@ tasks {
 
 detekt {
     config.setFrom(files("detekt.yml"))
-    baseline = file("detekt-baseline.xml")
     buildUponDefaultConfig = true
 }
