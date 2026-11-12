@@ -2,7 +2,7 @@
 
 | Field | Value |
 |---|---|
-| **Name** | SeleniumIQ - AI-Powered Test Automation (display name; see note) |
+| **Name** | SeleniumIQ - Selenium Test Automation Toolkit |
 | **Plugin ID** | com.jakubjirak.selenium-iq |
 | **Category** | Testing |
 | **License** | Apache-2.0, free |
@@ -17,8 +17,8 @@
 The plugin's description is maintained in `src/main/resources/META-INF/plugin.xml` and mirrors the
 [README](README.md) feature list. Keep the three in sync and list only what the plugin actually does.
 
-Note: the scores are rule-based heuristics; the plugin uses no machine-learning model. The display name still
-contains "AI-Powered" because renaming a published listing is the maintainer's call.
+Note: the scores are rule-based heuristics; the plugin uses no machine-learning model. Do not describe it as
+AI-powered anywhere (name, description, screenshots).
 
 ## Compatibility
 

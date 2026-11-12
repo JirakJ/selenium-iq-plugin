@@ -70,7 +70,7 @@ public class GenerateLocatorAction extends AnAction {
     private void showLocatorPopup(Editor editor, List<LocatorSuggestion> suggestions, 
                                  Project project) {
         BaseListPopupStep<LocatorSuggestion> step = new BaseListPopupStep<>(
-            "AI Locator Suggestions",
+            "Locator Suggestions",
             suggestions
         ) {
             @NotNull
@@ -104,7 +104,7 @@ public class GenerateLocatorAction extends AnAction {
                         "Stability: " + selectedValue.getStabilityLevel() + 
                         " (" + String.format("%.0f%%", selectedValue.getStabilityScore() * 100) + ")\n" +
                         "Strategy: " + selectedValue.getStrategy().getDescription(),
-                        "AI Locator Generated"
+                        "Locator Inserted"
                     );
                 }
                 return FINAL_CHOICE;

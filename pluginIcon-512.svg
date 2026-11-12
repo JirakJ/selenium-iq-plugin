@@ -68,15 +68,15 @@
         <path d="M 95 212 L 100 217 L 110 202" fill="none" stroke="#66BB6A" stroke-width="3" stroke-linecap="round"/>
     </g>
     
-    <!-- AI/IQ branding - large and prominent -->
+    <!-- IQ brand mark -->
     <g filter="url(#glow)">
         <text x="256" y="400" font-family="Arial, Helvetica, sans-serif" font-size="140" font-weight="bold" fill="#FFFFFF" text-anchor="middle" letter-spacing="8">IQ</text>
     </g>
     
     <!-- Subtitle -->
-    <text x="256" y="445" font-family="Arial, sans-serif" font-size="28" fill="#E8F5E9" text-anchor="middle" opacity="0.9">Selenium Intelligence</text>
+    <text x="256" y="445" font-family="Arial, sans-serif" font-size="28" fill="#E8F5E9" text-anchor="middle" opacity="0.9">Selenium Toolkit</text>
     
-    <!-- Smart indicator (lightning bolt for AI) - larger and more prominent -->
+    <!-- Lightning bolt accent -->
     <g filter="url(#shadow512)">
         <path d="M 270 165 L 230 230 L 260 230 L 245 280 L 295 215 L 270 215 Z" fill="url(#lightningGradient)" opacity="0.95"/>
     </g>
