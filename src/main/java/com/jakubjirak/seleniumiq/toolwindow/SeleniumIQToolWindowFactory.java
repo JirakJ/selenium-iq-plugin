@@ -80,7 +80,7 @@ public class SeleniumIQToolWindowFactory implements ToolWindowFactory {
                     });
 
             addButton("Heal Broken Locators",
-                    "Select a locator in the editor, then click to auto-fix it",
+                    "Select a locator in the editor, then click to get stable replacements",
                     e -> {
                         Editor editor = getSelectedEditor(project);
                         if (editor == null) {

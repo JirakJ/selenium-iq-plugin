@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+## [2026.9.1] - 2026-11-12
+
+### Changed
+- Renamed the plugin from "SeleniumIQ - AI-Powered Test Automation" to "SeleniumIQ - Selenium Test Automation Toolkit": the plugin has no AI or machine-learning component, all checks are deterministic rules. The plugin ID is unchanged.
+- Removed the remaining "AI" wording from the Generate Locator popup and dialog titles, and "predict" / "auto-fix" wording from action and tool window descriptions.
+- Dropped the stale "Planned for v1.1.0" roadmap (custom AI model training, AI locator accuracy targets) from this changelog.
+
 ## [2026.9.0] - 2026-11-11
 
 ### Fixed
@@ -138,30 +145,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - User guide and tutorials
 - Contributing guidelines
 - Commercial license terms
-
----
-
-## [Unreleased]
-
-### Planned for v1.1.0 (Q1 2025)
-
-#### Added
-- [ ] Playwright adapter support
-- [ ] Visual regression testing integration
-- [ ] BrowserStack/Sauce Labs direct execution
-- [ ] Enhanced team analytics dashboard
-- [ ] Custom AI model training (Enterprise)
-
-#### Improved
-- [ ] AI locator accuracy to 85%+
-- [ ] Self-healing confidence scoring
-- [ ] Performance optimization for large projects
-- [ ] Better error messages and diagnostics
-
-#### Fixed
-- [ ] Known issues with dynamic content detection
-- [ ] Edge cases in XPath generation
-- [ ] Memory usage with large test suites
 
 ---
 

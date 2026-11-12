@@ -15,7 +15,7 @@
     <circle cx="9.5" cy="10" r="1" fill="#FFFFFF" opacity="0.9"/>
     <circle cx="12.5" cy="10" r="1" fill="#FFFFFF" opacity="0.9"/>
     <circle cx="15.5" cy="10" r="1" fill="#FFFFFF" opacity="0.9"/>
-    <!-- Lightning bolt (AI) -->
+    <!-- Lightning bolt accent -->
     <path d="M22 14 L18 20 L20.5 20 L19 25 L24 19 L21.5 19 Z" fill="#FDD835"/>
     <!-- IQ as paths -->
     <!-- I letter -->
